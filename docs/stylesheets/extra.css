@@ -17,9 +17,7 @@
   --md-accent-bg-color:            #ffffff;
 
   --md-typeset-a-color:            #0077a3;
-
-  /* Soft sky tint for body — content cards stay pure white so they pop */
-  --md-default-bg-color:           #f5f9fc;
+  --md-default-bg-color:           #ffffff;
 }
 
 /* ─── Dark scheme (= night sea) ─── */
@@ -301,12 +299,6 @@
   border-radius: 6px;
   border-left-width: 4px;
   font-size: 0.78rem;
-  background-color: rgba(255, 255, 255, 0.85);
-}
-
-[data-md-color-scheme="slate"] .md-typeset .admonition,
-[data-md-color-scheme="slate"] .md-typeset details {
-  background-color: rgba(255, 255, 255, 0.03);
 }
 
 /* ─── Footer: deep sea + double-wave ─── */
