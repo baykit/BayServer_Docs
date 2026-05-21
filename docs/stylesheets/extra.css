@@ -1,119 +1,47 @@
-/* BayServer Documentation - "Lighthouse"
- * Bright ocean blue primary, vivid ship-red accent,
- * crisp white header with subtle blur (= 明るく、キレ味のある海)
+/* BayServer Documentation - "Sunny Harbor"
+ * Bright sea-blue header, white body, ship-red accent.
+ * Goal: 明るくクリーン、色のアイデンティティを保ちつつ重さを出さない
  */
 
 /* ─── Light scheme ─── */
 :root,
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color:           #0e5478;
-  --md-primary-fg-color--light:    #1c7ba8;
-  --md-primary-fg-color--dark:     #073553;
+  /* Brighter ocean blue — much more vivid than the previous navy */
+  --md-primary-fg-color:           #1e88c4;
+  --md-primary-fg-color--light:    #4ba8d8;
+  --md-primary-fg-color--dark:     #0d5478;
   --md-primary-bg-color:           #ffffff;
   --md-primary-bg-color--light:    rgba(255, 255, 255, 0.7);
 
-  --md-accent-fg-color:            #d63b30;
-  --md-accent-fg-color--transparent: rgba(214, 59, 48, 0.1);
+  /* Brighter warm coral-red accent */
+  --md-accent-fg-color:            #ef5350;
+  --md-accent-fg-color--transparent: rgba(239, 83, 80, 0.1);
   --md-accent-bg-color:            #ffffff;
 
-  --md-typeset-a-color:            #1c7ba8;
+  --md-typeset-a-color:            #1e88c4;
   --md-default-bg-color:           #ffffff;
 }
 
-/* ─── Dark scheme (= 真夜中の海) ─── */
+/* ─── Dark scheme ─── */
 [data-md-color-scheme="slate"] {
-  --md-default-bg-color:           #061827;
+  --md-default-bg-color:           #0a1929;
   --md-default-fg-color:           rgba(232, 240, 247, 0.9);
-  --md-default-fg-color--light:    rgba(232, 240, 247, 0.62);
-  --md-default-fg-color--lighter:  rgba(232, 240, 247, 0.32);
-  --md-default-fg-color--lightest: rgba(232, 240, 247, 0.07);
 
-  --md-primary-fg-color:           #0a2540;
+  --md-primary-fg-color:           #0d2540;
   --md-primary-bg-color:           rgba(232, 240, 247, 0.95);
 
-  --md-accent-fg-color:            #f57067;
-  --md-accent-fg-color--transparent: rgba(245, 112, 103, 0.15);
+  --md-accent-fg-color:            #ff8a85;
+  --md-accent-fg-color--transparent: rgba(255, 138, 133, 0.15);
 
-  --md-typeset-a-color:            #74c2f0;
+  --md-typeset-a-color:            #6cb8ec;
 }
 
-/* ─── Typography: dramatic weight contrast ─── */
-.md-typeset {
-  font-size: 0.85rem;
-  line-height: 1.75;
-}
+/* ─── Header: solid bright sea blue (= color identity restored) ─── */
+/* default Material header background already follows --md-primary-fg-color
+   when palette.primary is set, but we explicitly use the brighter custom
+   value here so the band feels light, not deep navy. */
 
-.md-typeset p {
-  margin: 1em 0;
-}
-
-.md-typeset h1 {
-  font-weight: 300;
-  font-size: 2.75rem;
-  line-height: 1.2;
-  margin: 0 0 1.5rem;
-  letter-spacing: -0.02em;
-  color: var(--md-primary-fg-color);
-}
-
-.md-typeset h2 {
-  font-weight: 500;
-  font-size: 1.6rem;
-  margin-top: 2.5em;
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--md-default-fg-color--lightest);
-  color: var(--md-primary-fg-color);
-}
-
-.md-typeset h3 {
-  font-weight: 500;
-  font-size: 1.2rem;
-  margin-top: 2em;
-  color: var(--md-primary-fg-color);
-}
-
-[data-md-color-scheme="slate"] .md-typeset h1,
-[data-md-color-scheme="slate"] .md-typeset h2,
-[data-md-color-scheme="slate"] .md-typeset h3 {
-  color: rgba(232, 240, 247, 0.95);
-}
-
-/* ─── Header: light + blurred + horizon line ─── */
-.md-header {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: var(--md-primary-fg-color);
-  box-shadow:
-    0 1px 0 rgba(0, 0, 0, 0.06),
-    0 4px 12px rgba(0, 0, 0, 0.04);
-}
-
-.md-header__title {
-  color: var(--md-primary-fg-color);
-  font-weight: 500;
-}
-
-.md-search__input {
-  background-color: rgba(14, 84, 120, 0.06);
-  color: var(--md-primary-fg-color);
-}
-
-.md-search__input::placeholder {
-  color: var(--md-default-fg-color--lighter);
-}
-
-[data-md-color-scheme="slate"] .md-header {
-  background-color: rgba(6, 24, 39, 0.92);
-  color: rgba(232, 240, 247, 0.95);
-}
-
-[data-md-color-scheme="slate"] .md-search__input {
-  background-color: rgba(116, 194, 240, 0.08);
-  color: rgba(232, 240, 247, 0.9);
-}
-
-/* ─── Logo: preserve red ship colors ─── */
+/* ─── Logo: preserve red ship colors on the blue header ─── */
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
   filter: none;
@@ -128,60 +56,62 @@
   width: auto;
 }
 
-/* ─── Tabs: subtle, color-coordinated ─── */
-.md-tabs {
-  background-color: transparent;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+/* ─── Typography: keep body text neutral, headings just sized + spaced ─── */
+.md-typeset {
+  font-size: 0.85rem;
+  line-height: 1.75;
 }
 
-.md-tabs__link {
-  color: var(--md-primary-fg-color);
-  opacity: 0.7;
-  font-weight: 500;
+.md-typeset p {
+  margin: 1em 0;
 }
 
-.md-tabs__link--active,
-.md-tabs__link:hover {
-  opacity: 1;
-  color: var(--md-primary-fg-color);
+.md-typeset h1 {
+  /* Sized big and airy, but COLOR LEFT TO MATERIAL DEFAULT (= readable dark gray) */
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.25;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.015em;
 }
 
-[data-md-color-scheme="slate"] .md-tabs__link {
-  color: rgba(232, 240, 247, 0.7);
-}
-[data-md-color-scheme="slate"] .md-tabs__link--active,
-[data-md-color-scheme="slate"] .md-tabs__link:hover {
-  color: rgba(232, 240, 247, 0.95);
-}
-
-/* ─── Side nav active accent ─── */
-.md-nav__item--active > .md-nav__link {
-  color: var(--md-accent-fg-color);
-  font-weight: 500;
-}
-
-.md-nav__link:hover {
-  color: var(--md-accent-fg-color);
-}
-
-.md-nav__title {
+.md-typeset h2 {
   font-weight: 600;
+  font-size: 1.5rem;
+  margin-top: 2.5em;
 }
 
-/* ─── Links: dotted underline → solid red on hover ─── */
+.md-typeset h3 {
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-top: 2em;
+}
+
+/* small subtle blue rule under H2 for color */
+.md-typeset h2::after {
+  content: "";
+  display: block;
+  width: 2.2rem;
+  height: 2px;
+  margin-top: 0.4em;
+  background: var(--md-primary-fg-color);
+  border-radius: 1px;
+}
+
+/* ─── Links: solid colored, simple ─── */
 .md-typeset a {
   text-decoration: none;
-  border-bottom: 1px dotted currentColor;
-  transition: color 150ms ease, border-color 150ms ease, border-style 150ms ease;
+  color: var(--md-typeset-a-color);
+  border-bottom: 1px solid rgba(30, 136, 196, 0.25);
+  transition: color 150ms ease, border-color 150ms ease;
 }
 
 .md-typeset a:hover {
   color: var(--md-accent-fg-color);
   border-bottom-color: var(--md-accent-fg-color);
-  border-bottom-style: solid;
 }
 
-/* exclude nav/header/tab links from the underline treatment */
+/* nav / header / tab / heading anchor links should not get the underline */
 .md-nav__link,
 .md-tabs__link,
 .md-header__button,
@@ -195,16 +125,30 @@
   border-bottom: none !important;
 }
 
-/* ─── Code: soft tint ─── */
+/* ─── Sidebar nav: brighter active marker ─── */
+.md-nav__item--active > .md-nav__link {
+  color: var(--md-accent-fg-color);
+  font-weight: 500;
+}
+
+.md-nav__link:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.md-nav__title {
+  font-weight: 600;
+}
+
+/* ─── Code: gentle blue tint ─── */
 .md-typeset code {
-  background-color: rgba(14, 84, 120, 0.08);
+  background-color: rgba(30, 136, 196, 0.08);
   border-radius: 3px;
   padding: 0.1em 0.4em;
   font-size: 0.85em;
 }
 
 [data-md-color-scheme="slate"] .md-typeset code {
-  background-color: rgba(116, 194, 240, 0.12);
+  background-color: rgba(108, 184, 236, 0.12);
 }
 
 .md-typeset pre > code {
@@ -213,20 +157,16 @@
   padding: 0;
 }
 
-/* ─── Admonitions: softer ─── */
+/* ─── Admonition: rounded + breathing ─── */
 .md-typeset .admonition,
 .md-typeset details {
   border-radius: 6px;
   font-size: 0.78rem;
 }
 
-/* ─── Footer: ocean gradient (= horizon at dusk) ─── */
+/* ─── Footer: light sea blue (= not heavy dark band) ─── */
 .md-footer {
-  background: linear-gradient(
-    180deg,
-    var(--md-primary-fg-color),
-    var(--md-primary-fg-color--dark)
-  );
+  background-color: var(--md-primary-fg-color);
 }
 
 .md-footer-meta {
@@ -239,14 +179,16 @@
   height: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--md-default-fg-color--lighter);
+  background: rgba(0, 0, 0, 0.18);
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--md-default-fg-color--light);
+  background: rgba(0, 0, 0, 0.32);
 }
 
-/* ─── Search results: cleaner ─── */
-.md-search__form {
-  border-radius: 4px;
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb {
+  background: rgba(232, 240, 247, 0.18);
+}
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(232, 240, 247, 0.32);
 }
