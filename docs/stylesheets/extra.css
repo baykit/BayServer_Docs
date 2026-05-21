@@ -1,6 +1,6 @@
-/* BayServer Documentation - "Regatta"
- * Vivid sea-cyan, gradient header, ship-red accent, wave footer,
- * card grids with hover lift. 見てて楽しいトーンを狙う。
+/* BayServer Documentation - "Sky & Sea"
+ * Vertical zoning: sky (header) → atmosphere (body) → sea (footer).
+ * Waves between zones so you always feel water nearby.
  */
 
 /* ─── Light scheme ─── */
@@ -17,10 +17,12 @@
   --md-accent-bg-color:            #ffffff;
 
   --md-typeset-a-color:            #0077a3;
-  --md-default-bg-color:           #ffffff;
+
+  /* Soft sky tint for body — content cards stay pure white so they pop */
+  --md-default-bg-color:           #f5f9fc;
 }
 
-/* ─── Dark scheme (= midnight at sea) ─── */
+/* ─── Dark scheme (= night sea) ─── */
 [data-md-color-scheme="slate"] {
   --md-default-bg-color:           #0a1929;
   --md-default-fg-color:           rgba(232, 240, 247, 0.9);
@@ -34,31 +36,55 @@
   --md-typeset-a-color:            #7dd3fc;
 }
 
-/* ─── Header: horizontal gradient (= 海 → 空) ─── */
+/* ─── Header: vertical gradient sky → sea surface ─── */
 .md-header {
   background: linear-gradient(
-    90deg,
-    #0077a3 0%,
-    #00b4d8 50%,
-    #4cc9f0 100%
+    180deg,
+    #87d7ee 0%,    /* light sky */
+    #4cc9f0 35%,   /* horizon */
+    #00b4d8 75%,   /* sea surface */
+    #0096b8 100%   /* slight depth at the bottom */
   );
+  position: relative;
+  overflow: visible;
+}
+
+/* Wave SVG riding under the header (= 海面が content に届く) */
+.md-header::after {
+  content: "";
+  position: absolute;
+  bottom: -22px;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 24' preserveAspectRatio='none'><path d='M0 0 C 200 22 380 4 600 12 C 820 20 1040 6 1260 14 C 1340 17 1400 8 1440 12 L 1440 0 Z' fill='%230096b8'/></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
 }
 
 [data-md-color-scheme="slate"] .md-header {
   background: linear-gradient(
-    90deg,
-    #061827 0%,
-    #0a2540 100%
+    180deg,
+    #0a2540 0%,
+    #061827 100%
   );
 }
 
-/* nav tabs ride on the gradient header */
+[data-md-color-scheme="slate"] .md-header::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 24' preserveAspectRatio='none'><path d='M0 0 C 200 22 380 4 600 12 C 820 20 1040 6 1260 14 C 1340 17 1400 8 1440 12 L 1440 0 Z' fill='%23061827'/></svg>");
+}
+
+/* Tabs ride on the gradient */
 .md-tabs {
   background: transparent;
+  position: relative;
+  z-index: 2;
 }
 
 .md-tabs__link {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.92);
   opacity: 1;
   font-weight: 500;
 }
@@ -66,6 +92,11 @@
 .md-tabs__link--active,
 .md-tabs__link:hover {
   color: #ffffff;
+}
+
+/* push the main content down a bit so the wave has room to breathe */
+.md-main {
+  padding-top: 12px;
 }
 
 /* ─── Logo: preserve red ship colors ─── */
@@ -110,6 +141,7 @@
   font-weight: 600;
   font-size: 1.5rem;
   margin-top: 2.5em;
+  position: relative;
 }
 
 .md-typeset h3 {
@@ -118,22 +150,23 @@
   margin-top: 2em;
 }
 
-/* H2: mini gradient accent bar (= 旗) */
+/* H2 gets a tiny wave underneath (= 各章の冒頭で小波が立つ) */
 .md-typeset h2::after {
   content: "";
   display: block;
-  width: 3rem;
-  height: 3px;
+  width: 4rem;
+  height: 6px;
   margin-top: 0.4em;
-  background: linear-gradient(
-    90deg,
-    var(--md-primary-fg-color),
-    var(--md-accent-fg-color)
-  );
-  border-radius: 2px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 6' preserveAspectRatio='none'><path d='M0 3 Q 8 0 16 3 T 32 3 T 48 3 T 64 3' stroke='%2300b4d8' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
-/* ─── Links: clean solid with coral hover ─── */
+[data-md-color-scheme="slate"] .md-typeset h2::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 6' preserveAspectRatio='none'><path d='M0 3 Q 8 0 16 3 T 32 3 T 48 3 T 64 3' stroke='%237dd3fc' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+}
+
+/* ─── Links ─── */
 .md-typeset a {
   text-decoration: none;
   color: var(--md-typeset-a-color);
@@ -146,7 +179,6 @@
   border-bottom-color: var(--md-accent-fg-color);
 }
 
-/* exclude nav / header / tab / heading-anchor links from underline */
 .md-nav__link,
 .md-tabs__link,
 .md-header__button,
@@ -175,7 +207,7 @@
   font-weight: 600;
 }
 
-/* ─── Card grid (= グリッドカード) ─── */
+/* ─── Card grid ─── */
 .md-typeset .grid.cards > ul > li {
   border-radius: 10px;
   border: 1px solid var(--md-default-fg-color--lightest);
@@ -193,7 +225,6 @@
   background-color: rgba(255, 255, 255, 0.03);
 }
 
-/* color bar at the top of each card */
 .md-typeset .grid.cards > ul > li::before {
   content: "";
   position: absolute;
@@ -211,7 +242,7 @@
 
 .md-typeset .grid.cards > ul > li:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 119, 163, 0.13);
+  box-shadow: 0 10px 24px rgba(0, 119, 163, 0.15);
   border-color: var(--md-primary-fg-color--light);
 }
 
@@ -264,32 +295,29 @@
   padding: 0;
 }
 
-/* ─── Admonition: thicker left border, rounded ─── */
+/* ─── Admonition ─── */
 .md-typeset .admonition,
 .md-typeset details {
   border-radius: 6px;
   border-left-width: 4px;
   font-size: 0.78rem;
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
-/* ─── Footer with wave on top (= 海面に届く) ─── */
-.md-footer::before {
-  content: "";
-  display: block;
-  height: 38px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 38' preserveAspectRatio='none'><path d='M0 22 C 240 38 480 6 720 18 C 960 30 1200 4 1440 18 L 1440 38 L 0 38 Z' fill='%2300b4d8'/></svg>");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: bottom;
+[data-md-color-scheme="slate"] .md-typeset .admonition,
+[data-md-color-scheme="slate"] .md-typeset details {
+  background-color: rgba(255, 255, 255, 0.03);
 }
 
+/* ─── Footer: deep sea + double-wave ─── */
 .md-footer {
-  background-color: var(--md-primary-fg-color);
   background-image: linear-gradient(
     180deg,
     #00b4d8 0%,
-    #0077a3 100%
+    #0077a3 50%,
+    #00455c 100%
   );
+  position: relative;
 }
 
 [data-md-color-scheme="slate"] .md-footer {
@@ -300,12 +328,42 @@
   );
 }
 
+/* foreground (lighter) wave */
+.md-footer::before {
+  content: "";
+  display: block;
+  height: 48px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 48' preserveAspectRatio='none'><path d='M0 28 C 200 50 380 8 600 22 C 820 36 1040 6 1260 22 C 1340 28 1400 16 1440 24 L 1440 48 L 0 48 Z' fill='%2300b4d8'/></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* background (darker, smaller) wave — second layer for depth */
+.md-footer::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 24' preserveAspectRatio='none'><path d='M0 14 C 240 24 480 4 720 14 C 960 24 1200 4 1440 12 L 1440 24 L 0 24 Z' fill='%230077a3' fill-opacity='0.65'/></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
 [data-md-color-scheme="slate"] .md-footer::before {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 38' preserveAspectRatio='none'><path d='M0 22 C 240 38 480 6 720 18 C 960 30 1200 4 1440 18 L 1440 38 L 0 38 Z' fill='%230a2540'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 48' preserveAspectRatio='none'><path d='M0 28 C 200 50 380 8 600 22 C 820 36 1040 6 1260 22 C 1340 28 1400 16 1440 24 L 1440 48 L 0 48 Z' fill='%230a2540'/></svg>");
+}
+
+[data-md-color-scheme="slate"] .md-footer::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 24' preserveAspectRatio='none'><path d='M0 14 C 240 24 480 4 720 14 C 960 24 1200 4 1440 12 L 1440 24 L 0 24 Z' fill='%23061827' fill-opacity='0.65'/></svg>");
 }
 
 .md-footer-meta {
-  background-color: var(--md-primary-fg-color--dark);
+  background-color: #00455c;
+  position: relative;
+  z-index: 1;
 }
 
 [data-md-color-scheme="slate"] .md-footer-meta {
@@ -318,16 +376,16 @@
   height: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 119, 163, 0.32);
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.32);
+  background: rgba(0, 119, 163, 0.55);
 }
 
 [data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb {
-  background: rgba(232, 240, 247, 0.18);
+  background: rgba(125, 211, 252, 0.25);
 }
 [data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb:hover {
-  background: rgba(232, 240, 247, 0.32);
+  background: rgba(125, 211, 252, 0.45);
 }
