@@ -1,48 +1,74 @@
-/* BayServer Documentation - sea-themed, elegant
- * Primary: deep ocean navy
- * Accent : BayServer logo red (= the ship)
+/* BayServer Documentation - "Lighthouse"
+ * Bright ocean blue primary, vivid ship-red accent,
+ * crisp white header with subtle blur (= 明るく、キレ味のある海)
  */
 
-/* ─── Light scheme (= a sunny harbor) ─── */
+/* ─── Light scheme ─── */
 :root,
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color:           #1a3a52;
-  --md-primary-fg-color--light:    #2c5876;
-  --md-primary-fg-color--dark:     #0d2333;
+  --md-primary-fg-color:           #0e5478;
+  --md-primary-fg-color--light:    #1c7ba8;
+  --md-primary-fg-color--dark:     #073553;
   --md-primary-bg-color:           #ffffff;
   --md-primary-bg-color--light:    rgba(255, 255, 255, 0.7);
 
-  --md-accent-fg-color:            #c8362d;
-  --md-accent-fg-color--transparent: rgba(200, 54, 45, 0.1);
+  --md-accent-fg-color:            #d63b30;
+  --md-accent-fg-color--transparent: rgba(214, 59, 48, 0.1);
   --md-accent-bg-color:            #ffffff;
 
-  --md-typeset-a-color:            #1f5a85;
-  --md-default-bg-color:           #fafbfc;
+  --md-typeset-a-color:            #1c7ba8;
+  --md-default-bg-color:           #ffffff;
 }
 
-/* ─── Dark scheme (= midnight at sea) ─── */
+/* ─── Dark scheme (= 真夜中の海) ─── */
 [data-md-color-scheme="slate"] {
-  --md-default-bg-color:           #0a1929;
-  --md-default-fg-color:           rgba(232, 240, 247, 0.87);
-  --md-default-fg-color--light:    rgba(232, 240, 247, 0.6);
+  --md-default-bg-color:           #061827;
+  --md-default-fg-color:           rgba(232, 240, 247, 0.9);
+  --md-default-fg-color--light:    rgba(232, 240, 247, 0.62);
   --md-default-fg-color--lighter:  rgba(232, 240, 247, 0.32);
   --md-default-fg-color--lightest: rgba(232, 240, 247, 0.07);
 
-  --md-primary-fg-color:           #0d2540;
+  --md-primary-fg-color:           #0a2540;
   --md-primary-bg-color:           rgba(232, 240, 247, 0.95);
 
-  --md-accent-fg-color:            #e6635c;
-  --md-accent-fg-color--transparent: rgba(230, 99, 92, 0.15);
+  --md-accent-fg-color:            #f57067;
+  --md-accent-fg-color--transparent: rgba(245, 112, 103, 0.15);
 
-  --md-typeset-a-color:            #69b3e7;
+  --md-typeset-a-color:            #74c2f0;
 }
 
-/* ─── Typography: refined headings ─── */
-.md-typeset h1,
-.md-typeset h2,
+/* ─── Typography: dramatic weight contrast ─── */
+.md-typeset {
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.md-typeset p {
+  margin: 1em 0;
+}
+
+.md-typeset h1 {
+  font-weight: 300;
+  font-size: 2.75rem;
+  line-height: 1.2;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset h2 {
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin-top: 2.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-primary-fg-color);
+}
+
 .md-typeset h3 {
   font-weight: 500;
-  letter-spacing: -0.01em;
+  font-size: 1.2rem;
+  margin-top: 2em;
   color: var(--md-primary-fg-color);
 }
 
@@ -52,81 +78,162 @@
   color: rgba(232, 240, 247, 0.95);
 }
 
-.md-typeset h1 {
-  font-weight: 300;
-  font-size: 2.25rem;
-  margin: 0 0 1.5rem;
-}
-
-/* ─── Header: subtle horizon line (= 水平線) ─── */
+/* ─── Header: light + blurred + horizon line ─── */
 .md-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--md-primary-fg-color);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.08),
-    0 1px 6px rgba(0, 0, 0, 0.06);
+    0 1px 0 rgba(0, 0, 0, 0.06),
+    0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
-/* preserve the red ship colors in the logo (= don't bleach with white filter) */
+.md-header__title {
+  color: var(--md-primary-fg-color);
+  font-weight: 500;
+}
+
+.md-search__input {
+  background-color: rgba(14, 84, 120, 0.06);
+  color: var(--md-primary-fg-color);
+}
+
+.md-search__input::placeholder {
+  color: var(--md-default-fg-color--lighter);
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background-color: rgba(6, 24, 39, 0.92);
+  color: rgba(232, 240, 247, 0.95);
+}
+
+[data-md-color-scheme="slate"] .md-search__input {
+  background-color: rgba(116, 194, 240, 0.08);
+  color: rgba(232, 240, 247, 0.9);
+}
+
+/* ─── Logo: preserve red ship colors ─── */
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
   filter: none;
 }
 
 .md-header__button.md-logo {
-  padding: 0.3rem;
+  padding: 0.25rem 0.5rem 0.25rem 0;
 }
 
 .md-header__button.md-logo img {
-  height: 1.8rem;
+  height: 2rem;
   width: auto;
 }
 
-/* ─── Generous typography spacing ─── */
-.md-typeset {
-  font-size: 0.82rem;
-  line-height: 1.7;
+/* ─── Tabs: subtle, color-coordinated ─── */
+.md-tabs {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.md-typeset p {
-  margin: 0.8em 0;
-}
-
-/* ─── Code: softer corners ─── */
-.md-typeset code {
-  border-radius: 3px;
-  padding: 0.1em 0.4em;
-}
-
-.md-typeset pre > code {
-  border-radius: 4px;
-}
-
-/* ─── Admonition: ocean-tinted borders ─── */
-.md-typeset .admonition,
-.md-typeset details {
-  border-radius: 4px;
-}
-
-/* ─── Side nav: subtle weight ─── */
-.md-nav__title {
+.md-tabs__link {
+  color: var(--md-primary-fg-color);
+  opacity: 0.7;
   font-weight: 500;
 }
 
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  opacity: 1;
+  color: var(--md-primary-fg-color);
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: rgba(232, 240, 247, 0.7);
+}
+[data-md-color-scheme="slate"] .md-tabs__link--active,
+[data-md-color-scheme="slate"] .md-tabs__link:hover {
+  color: rgba(232, 240, 247, 0.95);
+}
+
+/* ─── Side nav active accent ─── */
 .md-nav__item--active > .md-nav__link {
   color: var(--md-accent-fg-color);
   font-weight: 500;
 }
 
-/* ─── Footer ─── */
+.md-nav__link:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.md-nav__title {
+  font-weight: 600;
+}
+
+/* ─── Links: dotted underline → solid red on hover ─── */
+.md-typeset a {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  transition: color 150ms ease, border-color 150ms ease, border-style 150ms ease;
+}
+
+.md-typeset a:hover {
+  color: var(--md-accent-fg-color);
+  border-bottom-color: var(--md-accent-fg-color);
+  border-bottom-style: solid;
+}
+
+/* exclude nav/header/tab links from the underline treatment */
+.md-nav__link,
+.md-tabs__link,
+.md-header__button,
+.md-typeset .headerlink,
+.md-typeset h1 a,
+.md-typeset h2 a,
+.md-typeset h3 a,
+.md-typeset h4 a,
+.md-typeset h5 a,
+.md-typeset h6 a {
+  border-bottom: none !important;
+}
+
+/* ─── Code: soft tint ─── */
+.md-typeset code {
+  background-color: rgba(14, 84, 120, 0.08);
+  border-radius: 3px;
+  padding: 0.1em 0.4em;
+  font-size: 0.85em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: rgba(116, 194, 240, 0.12);
+}
+
+.md-typeset pre > code {
+  border-radius: 6px;
+  background-color: transparent;
+  padding: 0;
+}
+
+/* ─── Admonitions: softer ─── */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 6px;
+  font-size: 0.78rem;
+}
+
+/* ─── Footer: ocean gradient (= horizon at dusk) ─── */
 .md-footer {
+  background: linear-gradient(
+    180deg,
+    var(--md-primary-fg-color),
+    var(--md-primary-fg-color--dark)
+  );
+}
+
+.md-footer-meta {
   background-color: var(--md-primary-fg-color--dark);
 }
 
-/* ─── Link hover: gentle red wave ─── */
-.md-typeset a {
-  transition: color 150ms ease;
-}
-
-/* ─── Scrollbar (Chromium / Edge / Safari) ─── */
+/* ─── Scrollbar ─── */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -137,4 +244,9 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--md-default-fg-color--light);
+}
+
+/* ─── Search results: cleaner ─── */
+.md-search__form {
+  border-radius: 4px;
 }
