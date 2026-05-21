@@ -8,21 +8,26 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   language: ja
+  logo: assets/bayserver-logo.png
+  favicon: assets/favicon.ico
+  font:
+    text: Noto Sans JP
+    code: JetBrains Mono
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
-        icon: material/brightness-7
-        name: ダークモードへ
+        icon: material/weather-night
+        name: 夜の海 (ダークモード)
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
-        icon: material/brightness-4
-        name: ライトモードへ
+        icon: material/weather-sunny
+        name: 朝の海 (ライトモード)
   features:
     - navigation.tabs
     - navigation.sections
@@ -35,6 +40,9 @@ theme:
     - toc.follow
   icon:
     repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
 
 plugins:
   - search
