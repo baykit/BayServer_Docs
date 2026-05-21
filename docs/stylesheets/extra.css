@@ -1,28 +1,26 @@
-/* BayServer Documentation - "Sunny Harbor"
- * Bright sea-blue header, white body, ship-red accent.
- * Goal: 明るくクリーン、色のアイデンティティを保ちつつ重さを出さない
+/* BayServer Documentation - "Regatta"
+ * Vivid sea-cyan, gradient header, ship-red accent, wave footer,
+ * card grids with hover lift. 見てて楽しいトーンを狙う。
  */
 
 /* ─── Light scheme ─── */
 :root,
 [data-md-color-scheme="default"] {
-  /* Brighter ocean blue — much more vivid than the previous navy */
-  --md-primary-fg-color:           #1e88c4;
-  --md-primary-fg-color--light:    #4ba8d8;
-  --md-primary-fg-color--dark:     #0d5478;
+  --md-primary-fg-color:           #00b4d8;
+  --md-primary-fg-color--light:    #5dc7e0;
+  --md-primary-fg-color--dark:     #0077a3;
   --md-primary-bg-color:           #ffffff;
   --md-primary-bg-color--light:    rgba(255, 255, 255, 0.7);
 
-  /* Brighter warm coral-red accent */
-  --md-accent-fg-color:            #ef5350;
-  --md-accent-fg-color--transparent: rgba(239, 83, 80, 0.1);
+  --md-accent-fg-color:            #ef4444;
+  --md-accent-fg-color--transparent: rgba(239, 68, 68, 0.1);
   --md-accent-bg-color:            #ffffff;
 
-  --md-typeset-a-color:            #1e88c4;
+  --md-typeset-a-color:            #0077a3;
   --md-default-bg-color:           #ffffff;
 }
 
-/* ─── Dark scheme ─── */
+/* ─── Dark scheme (= midnight at sea) ─── */
 [data-md-color-scheme="slate"] {
   --md-default-bg-color:           #0a1929;
   --md-default-fg-color:           rgba(232, 240, 247, 0.9);
@@ -30,18 +28,47 @@
   --md-primary-fg-color:           #0d2540;
   --md-primary-bg-color:           rgba(232, 240, 247, 0.95);
 
-  --md-accent-fg-color:            #ff8a85;
-  --md-accent-fg-color--transparent: rgba(255, 138, 133, 0.15);
+  --md-accent-fg-color:            #ff7e7e;
+  --md-accent-fg-color--transparent: rgba(255, 126, 126, 0.15);
 
-  --md-typeset-a-color:            #6cb8ec;
+  --md-typeset-a-color:            #7dd3fc;
 }
 
-/* ─── Header: solid bright sea blue (= color identity restored) ─── */
-/* default Material header background already follows --md-primary-fg-color
-   when palette.primary is set, but we explicitly use the brighter custom
-   value here so the band feels light, not deep navy. */
+/* ─── Header: horizontal gradient (= 海 → 空) ─── */
+.md-header {
+  background: linear-gradient(
+    90deg,
+    #0077a3 0%,
+    #00b4d8 50%,
+    #4cc9f0 100%
+  );
+}
 
-/* ─── Logo: preserve red ship colors on the blue header ─── */
+[data-md-color-scheme="slate"] .md-header {
+  background: linear-gradient(
+    90deg,
+    #061827 0%,
+    #0a2540 100%
+  );
+}
+
+/* nav tabs ride on the gradient header */
+.md-tabs {
+  background: transparent;
+}
+
+.md-tabs__link {
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 1;
+  font-weight: 500;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  color: #ffffff;
+}
+
+/* ─── Logo: preserve red ship colors ─── */
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
   filter: none;
@@ -54,9 +81,14 @@
 .md-header__button.md-logo img {
   height: 2rem;
   width: auto;
+  transition: transform 200ms ease;
 }
 
-/* ─── Typography: keep body text neutral, headings just sized + spaced ─── */
+.md-header__button.md-logo:hover img {
+  transform: translateY(-2px) rotate(-2deg);
+}
+
+/* ─── Typography ─── */
 .md-typeset {
   font-size: 0.85rem;
   line-height: 1.75;
@@ -67,7 +99,6 @@
 }
 
 .md-typeset h1 {
-  /* Sized big and airy, but COLOR LEFT TO MATERIAL DEFAULT (= readable dark gray) */
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 1.25;
@@ -87,22 +118,26 @@
   margin-top: 2em;
 }
 
-/* small subtle blue rule under H2 for color */
+/* H2: mini gradient accent bar (= 旗) */
 .md-typeset h2::after {
   content: "";
   display: block;
-  width: 2.2rem;
-  height: 2px;
+  width: 3rem;
+  height: 3px;
   margin-top: 0.4em;
-  background: var(--md-primary-fg-color);
-  border-radius: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--md-primary-fg-color),
+    var(--md-accent-fg-color)
+  );
+  border-radius: 2px;
 }
 
-/* ─── Links: solid colored, simple ─── */
+/* ─── Links: clean solid with coral hover ─── */
 .md-typeset a {
   text-decoration: none;
   color: var(--md-typeset-a-color);
-  border-bottom: 1px solid rgba(30, 136, 196, 0.25);
+  border-bottom: 1px solid rgba(0, 119, 163, 0.25);
   transition: color 150ms ease, border-color 150ms ease;
 }
 
@@ -111,7 +146,7 @@
   border-bottom-color: var(--md-accent-fg-color);
 }
 
-/* nav / header / tab / heading anchor links should not get the underline */
+/* exclude nav / header / tab / heading-anchor links from underline */
 .md-nav__link,
 .md-tabs__link,
 .md-header__button,
@@ -121,11 +156,12 @@
 .md-typeset h3 a,
 .md-typeset h4 a,
 .md-typeset h5 a,
-.md-typeset h6 a {
+.md-typeset h6 a,
+.md-typeset .grid.cards > ul > li > p:last-child > a {
   border-bottom: none !important;
 }
 
-/* ─── Sidebar nav: brighter active marker ─── */
+/* ─── Sidebar nav ─── */
 .md-nav__item--active > .md-nav__link {
   color: var(--md-accent-fg-color);
   font-weight: 500;
@@ -139,16 +175,87 @@
   font-weight: 600;
 }
 
-/* ─── Code: gentle blue tint ─── */
+/* ─── Card grid (= グリッドカード) ─── */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 10px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  padding: 1.4em;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* color bar at the top of each card */
+.md-typeset .grid.cards > ul > li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--md-primary-fg-color),
+    var(--md-primary-fg-color--light)
+  );
+  opacity: 0.85;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 119, 163, 0.13);
+  border-color: var(--md-primary-fg-color--light);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.md-typeset .grid.cards > ul > li > p:first-child {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 0.4em;
+  color: var(--md-primary-fg-color--dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li > p:first-child {
+  color: rgba(232, 240, 247, 0.95);
+}
+
+.md-typeset .grid.cards > ul > li > p:first-child > .twemoji {
+  width: 1.4em;
+  height: 1.4em;
+  color: var(--md-primary-fg-color);
+  flex-shrink: 0;
+}
+
+.md-typeset .grid.cards > ul > li > p:first-child > .twemoji svg {
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Code ─── */
 .md-typeset code {
-  background-color: rgba(30, 136, 196, 0.08);
+  background-color: rgba(0, 180, 216, 0.1);
   border-radius: 3px;
   padding: 0.1em 0.4em;
   font-size: 0.85em;
 }
 
 [data-md-color-scheme="slate"] .md-typeset code {
-  background-color: rgba(108, 184, 236, 0.12);
+  background-color: rgba(125, 211, 252, 0.12);
 }
 
 .md-typeset pre > code {
@@ -157,20 +264,52 @@
   padding: 0;
 }
 
-/* ─── Admonition: rounded + breathing ─── */
+/* ─── Admonition: thicker left border, rounded ─── */
 .md-typeset .admonition,
 .md-typeset details {
   border-radius: 6px;
+  border-left-width: 4px;
   font-size: 0.78rem;
 }
 
-/* ─── Footer: light sea blue (= not heavy dark band) ─── */
+/* ─── Footer with wave on top (= 海面に届く) ─── */
+.md-footer::before {
+  content: "";
+  display: block;
+  height: 38px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 38' preserveAspectRatio='none'><path d='M0 22 C 240 38 480 6 720 18 C 960 30 1200 4 1440 18 L 1440 38 L 0 38 Z' fill='%2300b4d8'/></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
 .md-footer {
   background-color: var(--md-primary-fg-color);
+  background-image: linear-gradient(
+    180deg,
+    #00b4d8 0%,
+    #0077a3 100%
+  );
+}
+
+[data-md-color-scheme="slate"] .md-footer {
+  background-image: linear-gradient(
+    180deg,
+    #0a2540 0%,
+    #061827 100%
+  );
+}
+
+[data-md-color-scheme="slate"] .md-footer::before {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 38' preserveAspectRatio='none'><path d='M0 22 C 240 38 480 6 720 18 C 960 30 1200 4 1440 18 L 1440 38 L 0 38 Z' fill='%230a2540'/></svg>");
 }
 
 .md-footer-meta {
   background-color: var(--md-primary-fg-color--dark);
+}
+
+[data-md-color-scheme="slate"] .md-footer-meta {
+  background-color: #061827;
 }
 
 /* ─── Scrollbar ─── */
