@@ -1,0 +1,106 @@
+site_name: BayServer Documentation
+site_description: Manual for BayServer — multi-language web / proxy server
+site_url: https://baykit.github.io/BayServer_Docs/
+repo_url: https://github.com/baykit/BayServer_Docs
+repo_name: baykit/BayServer_Docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: ja
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: ダークモードへ
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: ライトモードへ
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      languages:
+        - locale: ja
+          default: true
+          name: 日本語
+          build: true
+        - locale: en
+          name: English
+          build: true
+          nav_translations:
+            ホーム: Home
+            はじめに: Getting Started
+            ガイド: Guide
+            リファレンス: Reference
+            アーキテクチャ: Architecture
+            言語別: Language Implementations
+            パフォーマンス: Performance
+            開発者向け: Developer
+            FAQ: FAQ
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - ホーム: index.md
+  - はじめに:
+      - getting-started/index.md
+  - ガイド:
+      - guide/index.md
+  - リファレンス:
+      - reference/index.md
+  - アーキテクチャ:
+      - architecture/index.md
+  - 言語別:
+      - languages/index.md
+      - Java: languages/java.md
+      - PHP: languages/php.md
+      - Ruby: languages/ruby.md
+      - Python: languages/python.md
+      - C: languages/c.md
+  - パフォーマンス:
+      - performance/index.md
+  - 開発者向け:
+      - developer/index.md
+  - FAQ: faq.md
