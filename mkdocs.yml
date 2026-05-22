@@ -14,20 +14,19 @@ theme:
     text: Noto Sans JP
     code: JetBrains Mono
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/weather-night
-        name: 夜の海 (ダークモード)
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    # slate (dark) を default にする — OS の prefers-color-scheme は無視
+    - scheme: slate
       primary: custom
       accent: custom
       toggle:
         icon: material/weather-sunny
         name: 朝の海 (ライトモード)
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: 夜の海 (ダークモード)
   features:
     - navigation.tabs
     - navigation.sections

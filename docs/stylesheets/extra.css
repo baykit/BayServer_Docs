@@ -34,20 +34,19 @@
   --md-typeset-a-color:            #7dd3fc;
 }
 
-/* ─── Header: vertical gradient sky → sea surface ─── */
+/* ─── Header: muted slate-blue gradient (= 落ち着いた曇り空 → 海) ─── */
 .md-header {
   background: linear-gradient(
     180deg,
-    #87d7ee 0%,    /* light sky */
-    #4cc9f0 35%,   /* horizon */
-    #00b4d8 75%,   /* sea surface */
-    #0096b8 100%   /* slight depth at the bottom */
+    #6c97b3 0%,    /* dusty sky */
+    #527e9a 50%,   /* overcast horizon */
+    #3a6a86 100%  /* calm sea */
   );
   position: relative;
   overflow: visible;
 }
 
-/* Wave SVG riding under the header (= 海面が content に届く) */
+/* Wave SVG riding under the header */
 .md-header::after {
   content: "";
   position: absolute;
@@ -55,7 +54,7 @@
   left: 0;
   right: 0;
   height: 24px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 24' preserveAspectRatio='none'><path d='M0 0 C 200 22 380 4 600 12 C 820 20 1040 6 1260 14 C 1340 17 1400 8 1440 12 L 1440 0 Z' fill='%230096b8'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 24' preserveAspectRatio='none'><path d='M0 0 C 200 22 380 4 600 12 C 820 20 1040 6 1260 14 C 1340 17 1400 8 1440 12 L 1440 0 Z' fill='%233a6a86'/></svg>");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   pointer-events: none;
@@ -301,13 +300,13 @@
   font-size: 0.78rem;
 }
 
-/* ─── Footer: deep sea + double-wave ─── */
+/* ─── Footer: muted deep sea + double-wave ─── */
 .md-footer {
   background-image: linear-gradient(
     180deg,
-    #00b4d8 0%,
-    #0077a3 50%,
-    #00455c 100%
+    #3a6a86 0%,
+    #2b556e 50%,
+    #1d3f54 100%
   );
   position: relative;
 }
@@ -320,12 +319,12 @@
   );
 }
 
-/* foreground (lighter) wave */
+/* foreground (lighter) wave — calm slate-blue */
 .md-footer::before {
   content: "";
   display: block;
   height: 48px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 48' preserveAspectRatio='none'><path d='M0 28 C 200 50 380 8 600 22 C 820 36 1040 6 1260 22 C 1340 28 1400 16 1440 24 L 1440 48 L 0 48 Z' fill='%2300b4d8'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 48' preserveAspectRatio='none'><path d='M0 28 C 200 50 380 8 600 22 C 820 36 1040 6 1260 22 C 1340 28 1400 16 1440 24 L 1440 48 L 0 48 Z' fill='%233a6a86'/></svg>");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -338,7 +337,7 @@
   left: 0;
   right: 0;
   height: 24px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 24' preserveAspectRatio='none'><path d='M0 14 C 240 24 480 4 720 14 C 960 24 1200 4 1440 12 L 1440 24 L 0 24 Z' fill='%230077a3' fill-opacity='0.65'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 24' preserveAspectRatio='none'><path d='M0 14 C 240 24 480 4 720 14 C 960 24 1200 4 1440 12 L 1440 24 L 0 24 Z' fill='%232b556e' fill-opacity='0.65'/></svg>");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   pointer-events: none;
@@ -353,7 +352,7 @@
 }
 
 .md-footer-meta {
-  background-color: #00455c;
+  background-color: #1d3f54;
   position: relative;
   z-index: 1;
 }
