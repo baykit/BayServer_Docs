@@ -96,19 +96,31 @@ nav:
   - ホーム: index.md
   - はじめに:
       - getting-started/index.md
+      - インストール: getting-started/install.md
+      - Hello World: getting-started/hello-world.md
   - ガイド:
       - guide/index.md
+      - リバースプロキシ: guide/reverse-proxy.md
+      - HTTPS / TLS: guide/https.md
+      - Let's Encrypt: guide/letsencrypt.md
+      - アクセス制限: guide/access-control.md
+      - HTTP/3: guide/http3.md
+      - WordPress: guide/wordpress.md
   - リファレンス:
       - reference/index.md
+      - .plan 文法: reference/plan-syntax.md
+      - Docker 種別: reference/docker-types.md
   - アーキテクチャ:
       - architecture/index.md
       - BayServer とは: architecture/overview.md
   - 言語別:
       - languages/index.md
+      - 機能比較表: languages/comparison.md
       - Java: languages/java.md
       - PHP: languages/php.md
       - Ruby: languages/ruby.md
       - Python: languages/python.md
+      - TypeScript: languages/typescript.md
       - C: languages/c.md
   - パフォーマンス:
       - performance/index.md

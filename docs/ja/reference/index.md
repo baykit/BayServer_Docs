@@ -4,7 +4,5 @@ BayServer の正確な仕様。
 
 ## このセクションのページ
 
-- `.plan` 文法 *(TBD)*
-- Docker 種別 (harbor / port / club / city / town / secure / log / ...) *(TBD)*
-- CLI (`bayserver` / `bayserver.sh` / `init` / ...) *(TBD)*
-- 設定キー一覧 *(TBD)*
+- [`.plan` 文法](plan-syntax.md) — 設計ファイルの書式、Docker ブロック、ネスト、コメント
+- [Docker 種別](docker-types.md) — Harbor / Port / Secure / City / Town / Club / Permission / Log / Reroute / Trouble など各 Docker の役割とパラメータ

@@ -4,6 +4,5 @@ BayServer を初めて触る方向けの入門 (= Tutorials)。最初の起動�
 
 ## このセクションのページ
 
-- インストール *(TBD)*
-- Hello World *(TBD)*
-- 言語実装の選択 *(TBD)*
+- [インストール](install.md) — ダウンロード版 / パッケージ版の入れ方
+- [Hello World](hello-world.md) — 最初の `.plan` を書いて自分のコンテンツを配信する

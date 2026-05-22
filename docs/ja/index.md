@@ -1,6 +1,6 @@
 # BayServer ドキュメント
 
-**BayServer** は、同じ `.plan` (= 設定ファイル) で複数言語実装 (Java / PHP / Ruby / Python / C) を切り替えられる高性能 Web / Proxy サーバです。本サイトでは BayServer の概念、使い方、運用、性能 tuning、開発情報を集約しています。
+**BayServer** は、同じ `.plan` (= 設定ファイル) で複数言語実装 (Java / PHP / Ruby / Python / TypeScript / C) を切り替えられる高性能 Web / Proxy サーバです。本サイトでは BayServer の概念、使い方、運用、性能 tuning、開発情報を集約しています。
 
 ## どこから読む?
 
@@ -10,25 +10,25 @@
 
     インストールから最初の Hello World、言語実装の選択までを順を追って。
 
-    [→ 入門ページ](getting-started/)
+    [→ 入門ページ](getting-started/index.md)
 
 -   :material-compass: __ガイド__
 
-    静的配信、リバースプロキシ、HTTPS / HTTP2 / HTTP3、監視、本番デプロイ。
+    静的配信、リバースプロキシ、HTTPS / HTTP/3、アクセス制限、WordPress。
 
-    [→ ガイドへ](guide/)
+    [→ ガイドへ](guide/index.md)
 
 -   :material-book-open-page-variant: __リファレンス__
 
-    `.plan` 文法、docker 種別、CLI、設定キーの正確な仕様。
+    `.plan` 文法、Docker 種別、CLI、設定キーの正確な仕様。
 
-    [→ リファレンスへ](reference/)
+    [→ リファレンスへ](reference/index.md)
 
 -   :material-sail-boat: __アーキテクチャ__
 
-    Tour / Ship / Agent の関係、Multiplexer の役割、設計の意図。
+    BayServer とは何か、設計目標と内部の用語 (Tour / Ship / Agent 等)。
 
-    [→ アーキテクチャへ](architecture/)
+    [→ アーキテクチャへ](architecture/index.md)
 
 </div>
 
@@ -40,31 +40,37 @@ BayServer は同じプラン記法を、異なる言語実装で動かすこと�
 
 -   :fontawesome-brands-java: __Java__
 
-    JDK 21+、JVM チューニング、Conscrypt、libphp 埋め込み (Pharos)。
+    JDK 1.8+、Servlet 内蔵、HTTP/2 + HTTP/3。
 
     [→ Java 版](languages/java.md)
 
 -   :fontawesome-brands-php: __PHP__
 
-    phpenv、ext-event、ReactPHP / AmPHP / Workerman、PHPVerse。
+    PHP 7.4+、composer 配布、WordPress 連携。
 
     [→ PHP 版](languages/php.md)
 
 -   :material-language-ruby: __Ruby__
 
-    rbenv、Falcon / Puma / Iodine 比較、async IO。
+    Ruby 2.7+、Rack 内蔵 (Rails / Sinatra)。
 
     [→ Ruby 版](languages/ruby.md)
 
 -   :fontawesome-brands-python: __Python__
 
-    venv、uvloop、asgi 系との比較。
+    Python 3.7+、WSGI 内蔵、HTTP/3 対応。
 
     [→ Python 版](languages/python.md)
 
+-   :material-nodejs: __TypeScript__
+
+    Node.js v16+、npm 配布。
+
+    [→ TypeScript 版](languages/typescript.md)
+
 -   :material-language-c: __C__
 
-    ビルド、libevent、static binary。
+    ネイティブビルド、最軽量。
 
     [→ C 版](languages/c.md)
 
@@ -78,13 +84,13 @@ BayServer は同じプラン記法を、異なる言語実装で動かすこと�
 
     計測指針、tuning、Tips。
 
-    [→ パフォーマンス](performance/)
+    [→ パフォーマンス](performance/index.md)
 
 -   :material-toolbox: __開発者向け__
 
     ビルド、コーディング規約、Docker 拡張の書き方、内部実装の地図。
 
-    [→ 開発者向け](developer/)
+    [→ 開発者向け](developer/index.md)
 
 -   :material-help-circle: __FAQ__
 
