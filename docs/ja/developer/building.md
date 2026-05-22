@@ -13,7 +13,6 @@ git clone https://github.com/baykit/BayServer_Python.git  # Python 版
 git clone https://github.com/baykit/BayServer_PHP.git     # PHP 版
 git clone https://github.com/baykit/BayServer_TypeScript.git
 git clone https://github.com/baykit/BayServer_Go.git
-git clone https://github.com/baykit/BayServer_C.git
 ```
 
 ## Java 版
@@ -85,14 +84,18 @@ npm run build
 
 `tsc` で `.ts` → `.js` にトランスパイル。配布は `npm publish` で。
 
-## C 版
+## Go 版
 
 ```bash
-cd BayServer_C
-make
+cd BayServer_Go
+go build ./cmd/bayserver
 ```
 
-`Makefile` ベース。出力は `bin/bayserver`。クロスコンパイルする場合は `CC=<toolchain>` を指定。
+出力は `bayserver` バイナリ。クロスコンパイルは Go 標準の `GOOS` / `GOARCH` で:
+
+```bash
+GOOS=linux GOARCH=arm64 go build ./cmd/bayserver
+```
 
 ## CI
 

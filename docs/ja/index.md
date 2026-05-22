@@ -82,11 +82,11 @@ BayServer は同じプラン記法を、異なる言語実装で動かすこと�
 
     [→ TypeScript 版](languages/typescript.md)
 
--   :material-language-c: __C__
+-   :material-language-go: __Go__
 
-    ネイティブビルド、最軽量。
+    goroutine ベース、単一バイナリ配布。
 
-    [→ C 版](languages/c.md)
+    [→ Go 版](languages/go.md)
 
 </div>
 

@@ -87,11 +87,11 @@ public void someMethod(int arg) throws IOException {
 - インデント 2 スペース
 - `prettier` + `eslint`
 
-## C 版
+## Go 版
 
-- K&R スタイル
-- インデント 4 スペース
-- `snake_case` 関数
+- `gofmt` 準拠 (= タブインデント、CamelCase エクスポート / camelCase 非エクスポート)
+- `go vet` clean
+- エラーは戻り値で返す慣習に従う (= `error` を最後の戻り値)
 
 ## コミットメッセージ
 

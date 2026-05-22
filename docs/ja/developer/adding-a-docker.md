@@ -121,7 +121,7 @@ TrainRunner.post(tour, agentId, () -> {
 
 ## 他言語版
 
-Ruby / Python / PHP / TypeScript / C 版でも同じ拡張パターンが使えます。基底クラス / モジュールの名前は各言語の慣習に合わせて変わります。
+Ruby / Python / PHP / TypeScript / Go 版でも同じ拡張パターンが使えます。基底クラス / モジュールの名前は各言語の慣習に合わせて変わります。
 
 ---
 

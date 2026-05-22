@@ -17,7 +17,7 @@ PHP 処理は PHP-FPM が担当 (= BayServer 自体は PHP インタプリタを
 
 ## 前提
 
-- BayServer (Java / Ruby / Python / TypeScript / C 版どれでも可)
+- BayServer (Java / Ruby / Python / TypeScript / Go 版どれでも可)
 - PHP-FPM 8.x 以降
 - MySQL / MariaDB
 - ドメインに DNS が当たっていて Let's Encrypt 証明書が取得可能

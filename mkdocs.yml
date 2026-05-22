@@ -140,7 +140,7 @@ nav:
       - Ruby: languages/ruby.md
       - Python: languages/python.md
       - TypeScript: languages/typescript.md
-      - C: languages/c.md
+      - Go: languages/go.md
   - パフォーマンス:
       - performance/index.md
       - Tuning ガイド: performance/tuning.md

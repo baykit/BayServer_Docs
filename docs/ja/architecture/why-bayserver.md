@@ -65,7 +65,7 @@ HTTP/1, HTTP/2, HTTP/3, AJP, FCGI を **同一の Tour/Ship 抽象** で扱え�
 
 ### 同一プラン記法での多言語実装
 
-Java / Ruby / Python / PHP / TypeScript / C 版が **同じ `.plan` ファイル** で動きます。アプリケーションの言語に合わせて選べる柔軟性は他のサーバには無い特徴です。
+Java / Ruby / Python / PHP / TypeScript / Go 版が **同じ `.plan` ファイル** で動きます。アプリケーションの言語に合わせて選べる柔軟性は他のサーバには無い特徴です。
 
 ## どんなときに BayServer を選ぶか
 

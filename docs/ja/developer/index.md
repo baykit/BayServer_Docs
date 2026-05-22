@@ -17,6 +17,5 @@ BayServer 自体を改造・拡張する人 (= contributor、社内 fork 担当�
 - [BayServer_PHP](https://github.com/baykit/BayServer_PHP)
 - [BayServer_TypeScript](https://github.com/baykit/BayServer_TypeScript)
 - [BayServer_Go](https://github.com/baykit/BayServer_Go)
-- [BayServer_C](https://github.com/baykit/BayServer_C)
 - [BayServer_Performance_Check](https://github.com/baykit/BayServer_Performance_Check) — 性能計測ハーネス
 - [BayServer_Docs](https://github.com/baykit/BayServer_Docs) — 本ドキュメントサイト

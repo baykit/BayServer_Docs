@@ -40,7 +40,6 @@ GitHub Releases / RSS を参照:
 - [BayServer for PHP](https://github.com/baykit/BayServer_PHP/releases)
 - [BayServer for TypeScript](https://github.com/baykit/BayServer_TypeScript/releases)
 - [BayServer for Go](https://github.com/baykit/BayServer_Go/releases)
-- [BayServer for C](https://github.com/baykit/BayServer_C/releases)
 
 公式アナウンス:
 
