@@ -98,6 +98,32 @@ Docker は階層構造で書けます:
 
 主要な Docker は以下の階層を取ります:
 
+```mermaid
+graph TD
+  harbor[harbor<br/>= サーバ全体]
+  port[port<br/>= TCP/UDP ポート]
+  secure[secure<br/>= TLS]
+  perm_port[permission<br/>= ポート単位]
+  city[city<br/>= バーチャルホスト]
+  town[town<br/>= URL 区画]
+  club[club<br/>= 拡張子/パスパターン]
+  docker_x[docker xxx<br/>= file / cgi / php / servlet / warp ...]
+  perm_town[permission<br/>= town 単位]
+  log[log<br/>= アクセスログ]
+
+  harbor --- port
+  harbor --- city
+  harbor --- log
+  port --> secure
+  port --> perm_port
+  city --> town
+  town --> club
+  town --> perm_town
+  club --> docker_x
+```
+
+テキスト表現でも同等:
+
 ```
 harbor                   (= サーバ全体)
 port (port number)       (= TCP/UDP ポート)

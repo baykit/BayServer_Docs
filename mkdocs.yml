@@ -77,7 +77,11 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.highlight:
@@ -99,6 +103,11 @@ nav:
       - getting-started/index.md
       - インストール: getting-started/install.md
       - Hello World: getting-started/hello-world.md
+      - チュートリアル:
+          - getting-started/tutorial/index.md
+          - Part 1 静的サイト: getting-started/tutorial/part1-static.md
+          - Part 2 HTTPS 化: getting-started/tutorial/part2-https.md
+          - Part 3 リバプロを足す: getting-started/tutorial/part3-warp.md
   - ガイド:
       - guide/index.md
       - リバースプロキシ: guide/reverse-proxy.md
@@ -107,12 +116,18 @@ nav:
       - アクセス制限: guide/access-control.md
       - HTTP/3: guide/http3.md
       - WordPress: guide/wordpress.md
+      - 他サーバからの移行: guide/migration.md
+  - 実例集:
+      - examples/index.md
+      - Rails アプリ: examples/rails.md
+      - WordPress 完全構成: examples/wordpress-full.md
   - リファレンス:
       - reference/index.md
       - .plan 文法: reference/plan-syntax.md
+      - 用語集: reference/glossary.md
       - Docker 種別 (V4 以降): reference/docker-types.md
       - Docker 種別 (V3 以前 / 凍結): reference/docker-types-v3.md
-  - アーキテクチャ:
+  - 仕組みを知る:
       - architecture/index.md
       - Tour / Ship / Agent: architecture/tour-ship-agent.md
       - Multiplexer: architecture/multiplexer.md
@@ -137,4 +152,5 @@ nav:
       - コーディングスタイル: developer/coding-style.md
       - 新しい Docker を書く: developer/adding-a-docker.md
       - 内部実装の地図: developer/internals.md
+  - What's New: whats-new.md
   - FAQ: faq.md

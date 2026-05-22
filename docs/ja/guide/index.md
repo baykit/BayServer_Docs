@@ -1,6 +1,6 @@
 # ガイド
 
-特定の課題を解くための How-to ガイド集。
+特定の課題を解くための How-to ガイド集。**機能単位**の使い方を扱います。アプリケーション完成形のレシピは [実例集](../examples/index.md) を参照。
 
 ## このセクションのページ
 
@@ -10,3 +10,4 @@
 - [アクセス制限](access-control.md) — Permission Docker で IP / Basic 認証
 - [HTTP/3 を有効化する](http3.md) — Java 版 / Python 版での H3 サーバ
 - [WordPress を動かす](wordpress.md) — PHP 版または FCGI Warp + PHP-FPM
+- [Apache / Nginx / Tomcat からの移行](migration.md) — 設定対応表 + 並行運用パターン

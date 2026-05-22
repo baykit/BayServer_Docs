@@ -2,7 +2,7 @@
 
 **BayServer** は「**簡単**」「**軽量**」「**高速**」を設計目標にした、オープンソースの Web / Proxy サーバです。本サイトでは BayServer の概念、使い方、運用、性能 tuning、開発情報を集約しています。
 
-製品の概要は [**BayServer とは**](about.md) から。
+製品の概要は [**BayServer とは**](about.md) から。初めての方は [**チュートリアル**](getting-started/tutorial/index.md) を順に進めるのもおすすめです。
 
 ## どこから読む?
 
@@ -10,27 +10,39 @@
 
 -   :material-anchor: __はじめに__
 
-    インストールから最初の Hello World、言語実装の選択までを順を追って。
+    インストールから最初の Hello World、3 部構成のチュートリアルまで。
 
     [→ 入門ページ](getting-started/index.md)
 
 -   :material-compass: __ガイド__
 
-    静的配信、リバースプロキシ、HTTPS / HTTP/3、アクセス制限、WordPress。
+    静的配信、リバースプロキシ、HTTPS / HTTP/3、アクセス制限、移行ガイド。
 
     [→ ガイドへ](guide/index.md)
 
+-   :material-clipboard-list: __実例集__
+
+    Rails / WordPress 等の完成形 `.plan` レシピ。
+
+    [→ 実例集へ](examples/index.md)
+
 -   :material-book-open-page-variant: __リファレンス__
 
-    `.plan` 文法、Docker 種別、CLI、設定キーの正確な仕様。
+    `.plan` 文法、用語集、Docker 種別の正確な仕様。
 
     [→ リファレンスへ](reference/index.md)
 
--   :material-sail-boat: __アーキテクチャ__
+-   :material-sail-boat: __仕組みを知る__
 
-    BayServer とは何か、設計目標と内部の用語 (Tour / Ship / Agent 等)。
+    Tour / Ship / Agent モデル、設計の意図。
 
-    [→ アーキテクチャへ](architecture/index.md)
+    [→ 仕組みを知る](architecture/index.md)
+
+-   :material-speedometer: __パフォーマンス__
+
+    計測指針、tuning、Tips。
+
+    [→ パフォーマンス](performance/index.md)
 
 </div>
 
@@ -82,17 +94,17 @@ BayServer は同じプラン記法を、異なる言語実装で動かすこと�
 
 <div class="grid cards" markdown>
 
--   :material-speedometer: __パフォーマンス__
-
-    計測指針、tuning、Tips。
-
-    [→ パフォーマンス](performance/index.md)
-
 -   :material-toolbox: __開発者向け__
 
     ビルド、コーディング規約、Docker 拡張の書き方、内部実装の地図。
 
     [→ 開発者向け](developer/index.md)
+
+-   :material-newspaper: __What's New__
+
+    主要バージョンの更新情報。
+
+    [→ What's New](whats-new.md)
 
 -   :material-help-circle: __FAQ__
 
