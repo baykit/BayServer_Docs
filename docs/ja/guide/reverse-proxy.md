@@ -154,6 +154,6 @@ Apache の `mod_proxy_ajp` で BayServer に転送する場合は、BayServer �
 
 ## 関連
 
-- [Docker 種別 / Warp Docker](../reference/docker-types.md)
+- [Docker 種別 / Warp Docker](../reference/docker-types-v3.md)
 - [HTTPS / TLS の設定](https.md) — TLS フロント + プロキシ構成
 - [`.plan` 文法](../reference/plan-syntax.md)

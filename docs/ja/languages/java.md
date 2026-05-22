@@ -116,4 +116,4 @@ BSERV_OPT="-Xmx2g -XX:+UseG1GC" bin/bayserver.sh -start
 - [インストール](../getting-started/install.md)
 - [言語実装別 比較表](comparison.md)
 - [`.plan` 文法](../reference/plan-syntax.md)
-- [Docker 種別](../reference/docker-types.md)
+- [Docker 種別](../reference/docker-types-v3.md)

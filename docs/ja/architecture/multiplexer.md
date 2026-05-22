@@ -55,7 +55,7 @@ BayServer の I/O 多重化エンジンです。各 Grand Agent が 1 つの Mul
 
 `maxDirectBoardings` は同時 sendfile 数の上限。
 
-巨大ファイル配信時に CPU 使用率が大幅に下がります。MemBarge cache (= [Barge Docker](../reference/docker-types.md)) と組み合わせるとさらに高速化。
+巨大ファイル配信時に CPU 使用率が大幅に下がります。MemBarge cache (= [Barge Docker](../reference/docker-types-v3.md)) と組み合わせるとさらに高速化。
 
 ## Barge Docker (= メモリキャッシュ)
 
@@ -94,4 +94,4 @@ BayServer の I/O 多重化エンジンです。各 Grand Agent が 1 つの Mul
 
 - [Tour / Ship / Agent](tour-ship-agent.md) — Multiplexer の上位構造
 - [パフォーマンス / Tuning](../performance/tuning.md) — Multiplexer 選択の指針
-- [Docker 種別 / Harbor Docker](../reference/docker-types.md)
+- [Docker 種別 / Harbor Docker](../reference/docker-types-v3.md)

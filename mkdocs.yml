@@ -110,7 +110,8 @@ nav:
   - リファレンス:
       - reference/index.md
       - .plan 文法: reference/plan-syntax.md
-      - Docker 種別: reference/docker-types.md
+      - Docker 種別 (V4 以降): reference/docker-types.md
+      - Docker 種別 (V3 以前 / 凍結): reference/docker-types-v3.md
   - アーキテクチャ:
       - architecture/index.md
       - Tour / Ship / Agent: architecture/tour-ship-agent.md
