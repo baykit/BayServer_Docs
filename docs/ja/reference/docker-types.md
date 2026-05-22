@@ -298,5 +298,5 @@ HTTP エラー時の処理。
 ## 関連
 
 - [`.plan` 文法](plan-syntax.md) — 設定ファイルの書き方
-- [BayServer とは / 用語表](../architecture/overview.md#1) — Docker 名の比喩
+- [BayServer とは / 用語表](../about.md#1) — Docker 名の比喩
 - [ガイド](../guide/index.md) — 実際の使用例

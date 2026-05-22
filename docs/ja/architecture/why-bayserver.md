@@ -4,7 +4,7 @@ Apache / Nginx が既に成熟している中で、BayServer がなぜ別の Web
 
 ## 設計の 3 つの目標
 
-[BayServer とは](overview.md) で挙げた通り、設計目標は **簡単・軽量・高速** の 3 つです。これらをそれぞれ既存サーバと比べて見てみます。
+[BayServer とは](../about.md) で挙げた通り、設計目標は **簡単・軽量・高速** の 3 つです。これらをそれぞれ既存サーバと比べて見てみます。
 
 ## 簡単さ
 
@@ -87,6 +87,6 @@ Java / Ruby / Python / PHP / TypeScript / C 版が **同じ `.plan` ファイル
 
 ## 関連
 
-- [BayServer とは](overview.md)
+- [BayServer とは](../about.md)
 - [Tour / Ship / Agent](tour-ship-agent.md)
 - [パフォーマンス](../performance/index.md)

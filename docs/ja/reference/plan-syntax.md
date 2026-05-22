@@ -2,6 +2,9 @@
 
 BayServer の設定ファイル (= **設計ファイル / `.plan`**) は Windows の ini ファイルに近いシンプルな書式です。Docker と呼ばれるブロックを縦に並べて構成します。
 
+!!! note "全言語実装で共通"
+    `.plan` の文法は Java / Ruby / Python / PHP / TypeScript / C の **全ての BayServer 実装で同一** です。同じ `.plan` ファイルを別言語の実装に渡しても (= 言語固有 docker のみ違いを吸収すれば) そのまま動作します。
+
 ## 場所
 
 デフォルトは BayServer ホーム配下の `plan/bayserver.plan`。起動時の `-plan` オプションで別ファイルを指定できます:
@@ -183,4 +186,4 @@ format "%h %l %u %t \"%r\" %>s %b"
 
 - [Docker 種別](index.md) — 各 Docker の役割とパラメータ
 - [Hello World](../getting-started/hello-world.md) — 最初の `.plan` を書く
-- [BayServer とは / 用語表](../architecture/overview.md#1) — harbor / port / city / town … の比喩の由来
+- [BayServer とは / 用語表](../about.md#1) — harbor / port / city / town … の比喩の由来

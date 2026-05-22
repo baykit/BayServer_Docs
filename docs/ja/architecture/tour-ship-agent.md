@@ -85,6 +85,6 @@ CPU コア数程度の Agent を用意すると、各コアが 1 つの Agent (=
 
 ## 関連
 
-- [BayServer とは / 用語表](overview.md#1) — Docker 名の比喩
+- [BayServer とは / 用語表](../about.md#1) — Docker 名の比喩
 - [Multiplexer](multiplexer.md) — I/O 多重化の選択肢
 - [パフォーマンス](../performance/index.md) — tuning パラメータ

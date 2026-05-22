@@ -2,7 +2,7 @@
 
 **BayServer** は横浜ベイキットが開発・公開しているオープンソースの Web サーバです。「**簡単**」「**軽量**」「**高速**」の 3 つを設計目標に据えて、ゼロから書き起こされました。
 
-特徴的なのは **同一の設定ファイル (`.plan`) で複数のプログラミング言語実装が動作する** ことです。Java / Ruby / Python / PHP / Node.js (TypeScript) / C の各版が存在し、利用シーンに応じて選択できます。
+Java / Ruby / Python / PHP / Node.js (TypeScript) / C の各言語実装が用意されているので、利用シーンに合わせて選べます。
 
 ## バージョン略史
 
@@ -62,7 +62,7 @@ BayServer はスレッド切替を使わず、**ノンブロッキング API で
 
 ## 多言語実装
 
-BayServer は同じ `.plan` 記法を、複数のプログラミング言語実装で実行できます。
+BayServer には複数のプログラミング言語実装が存在し、用途に合わせて選べます。
 
 | 実装 | 主な用途 / 内蔵機能 |
 |---|---|
@@ -75,7 +75,7 @@ BayServer は同じ `.plan` 記法を、複数のプログラミング言語実�
 
 各版は **その言語で出せる性能の限界** に挑戦しています。既存の Web アプリ (Servlet / Rack / WSGI) を持っていれば、BayServer に乗せ換えるだけで利用可能です。
 
-詳細な機能対応は [言語別](../languages/index.md) のセクションを参照してください。
+詳細な機能対応は [言語別](languages/index.md) のセクションを参照してください。
 
 ## プロトコル対応
 
@@ -91,7 +91,7 @@ BayServer は HTTP の他、AJP (Apache JServ Protocol) や FCGI (Fast CGI) も�
 | AJP | ✓ | ✓ |
 | FCGI | ✓ | ✓ |
 
-実装言語によって対応プロトコルが異なる場合があります。詳細は [言語別](../languages/index.md) で確認してください。
+実装言語によって対応プロトコルが異なる場合があります。詳細は [言語別](languages/index.md) で確認してください。
 
 ## 構成例 (= プロキシパターン)
 
@@ -108,7 +108,7 @@ BayServer は HTTP の他、AJP (Apache JServ Protocol) や FCGI (Fast CGI) も�
 
 ## 関連セクション
 
-- [はじめに](../getting-started/index.md) — インストールから最初の起動まで
-- [ガイド](../guide/index.md) — 上記の構成例を実際に組む How-to
-- [リファレンス](../reference/index.md) — `.plan` 文法、docker 種別、CLI など仕様
-- [言語別](../languages/index.md) — 実装ごとの機能対応・固有事項
+- [はじめに](getting-started/index.md) — インストールから最初の起動まで
+- [ガイド](guide/index.md) — 上記の構成例を実際に組む How-to
+- [リファレンス](reference/index.md) — `.plan` 文法、docker 種別、CLI など仕様
+- [言語別](languages/index.md) — 実装ごとの機能対応・固有事項

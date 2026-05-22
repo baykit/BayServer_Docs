@@ -1,6 +1,8 @@
 # BayServer ドキュメント
 
-**BayServer** は、同じ `.plan` (= 設定ファイル) で複数言語実装 (Java / PHP / Ruby / Python / TypeScript / C) を切り替えられる高性能 Web / Proxy サーバです。本サイトでは BayServer の概念、使い方、運用、性能 tuning、開発情報を集約しています。
+**BayServer** は「**簡単**」「**軽量**」「**高速**」を設計目標にした、オープンソースの Web / Proxy サーバです。本サイトでは BayServer の概念、使い方、運用、性能 tuning、開発情報を集約しています。
+
+製品の概要は [**BayServer とは**](about.md) から。
 
 ## どこから読む?
 

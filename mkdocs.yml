@@ -94,6 +94,7 @@ markdown_extensions:
 
 nav:
   - ホーム: index.md
+  - BayServer とは: about.md
   - はじめに:
       - getting-started/index.md
       - インストール: getting-started/install.md
@@ -112,7 +113,6 @@ nav:
       - Docker 種別: reference/docker-types.md
   - アーキテクチャ:
       - architecture/index.md
-      - BayServer とは: architecture/overview.md
       - Tour / Ship / Agent: architecture/tour-ship-agent.md
       - Multiplexer: architecture/multiplexer.md
       - なぜ BayServer か: architecture/why-bayserver.md
