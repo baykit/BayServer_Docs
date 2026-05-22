@@ -6,9 +6,9 @@
 
 - [Rails アプリをデプロイする](rails.md) — Rack 経由で Ruby on Rails をフロント + 静的アセット最適化
 - [WordPress を完全構成で動かす](wordpress-full.md) — PHP-FPM + FCGI Warp + TLS + 静的 uploads 最適化
-- [Django + Gunicorn の前に立てる](django.md) *(TBD)*
-- [Servlet アプリ + Tomcat の代わり](servlet-replacement.md) *(TBD)*
-- [静的サイト + CDN front (= keep-alive 設計)](static-cdn.md) *(TBD)*
+- Django + Gunicorn の前に立てる *(TBD)*
+- Servlet アプリ + Tomcat の代わり *(TBD)*
+- 静的サイト + CDN front (= keep-alive 設計) *(TBD)*
 
 ## このセクションの位置付け
 
