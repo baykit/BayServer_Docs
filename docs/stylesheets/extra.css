@@ -124,29 +124,19 @@
   margin-top: 2em;
 }
 
-/* H2 gradient accent bar (= 旗のような色帯) */
+/* H2 sea-toned accent bar (= 海の同系統内グラデ、no red) */
 .md-typeset h2::after {
   content: "";
   display: block;
   width: 3rem;
   height: 3px;
   margin-top: 0.4em;
-  background: linear-gradient(
-    90deg,
-    var(--md-primary-fg-color),
-    var(--md-accent-fg-color)
-  );
+  background: linear-gradient(90deg, #3a6a86, #6c97b3);
   border-radius: 2px;
 }
 
-/* Dark mode: primary is near-black, use typeset-a-color so the bar
-   remains visible against the dark body. */
 [data-md-color-scheme="slate"] .md-typeset h2::after {
-  background: linear-gradient(
-    90deg,
-    var(--md-typeset-a-color),
-    var(--md-accent-fg-color)
-  );
+  background: linear-gradient(90deg, #4a8fb8, #7dd3fc);
 }
 
 /* ─── Links ─── */
