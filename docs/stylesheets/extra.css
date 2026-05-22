@@ -124,20 +124,29 @@
   margin-top: 2em;
 }
 
-/* H2 gets a tiny wave underneath (= 各章の冒頭で小波が立つ) */
+/* H2 gradient accent bar (= 旗のような色帯) */
 .md-typeset h2::after {
   content: "";
   display: block;
-  width: 4rem;
-  height: 6px;
+  width: 3rem;
+  height: 3px;
   margin-top: 0.4em;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 6' preserveAspectRatio='none'><path d='M0 3 Q 8 0 16 3 T 32 3 T 48 3 T 64 3' stroke='%2300b4d8' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background: linear-gradient(
+    90deg,
+    var(--md-primary-fg-color),
+    var(--md-accent-fg-color)
+  );
+  border-radius: 2px;
 }
 
+/* Dark mode: primary is near-black, use typeset-a-color so the bar
+   remains visible against the dark body. */
 [data-md-color-scheme="slate"] .md-typeset h2::after {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 6' preserveAspectRatio='none'><path d='M0 3 Q 8 0 16 3 T 32 3 T 48 3 T 64 3' stroke='%237dd3fc' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+  background: linear-gradient(
+    90deg,
+    var(--md-typeset-a-color),
+    var(--md-accent-fg-color)
+  );
 }
 
 /* ─── Links ─── */
