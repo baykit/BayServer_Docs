@@ -113,6 +113,9 @@ nav:
   - アーキテクチャ:
       - architecture/index.md
       - BayServer とは: architecture/overview.md
+      - Tour / Ship / Agent: architecture/tour-ship-agent.md
+      - Multiplexer: architecture/multiplexer.md
+      - なぜ BayServer か: architecture/why-bayserver.md
   - 言語別:
       - languages/index.md
       - 機能比較表: languages/comparison.md
@@ -124,6 +127,13 @@ nav:
       - C: languages/c.md
   - パフォーマンス:
       - performance/index.md
+      - Tuning ガイド: performance/tuning.md
+      - Tips: performance/tips.md
+      - ベンチマーク方法論: performance/benchmarks.md
   - 開発者向け:
       - developer/index.md
+      - ビルド方法: developer/building.md
+      - コーディングスタイル: developer/coding-style.md
+      - 新しい Docker を書く: developer/adding-a-docker.md
+      - 内部実装の地図: developer/internals.md
   - FAQ: faq.md
