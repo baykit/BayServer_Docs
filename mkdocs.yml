@@ -102,6 +102,7 @@ nav:
       - reference/index.md
   - アーキテクチャ:
       - architecture/index.md
+      - BayServer とは: architecture/overview.md
   - 言語別:
       - languages/index.md
       - Java: languages/java.md
