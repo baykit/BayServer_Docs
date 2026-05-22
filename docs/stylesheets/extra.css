@@ -42,23 +42,6 @@
     #527e9a 50%,   /* overcast horizon */
     #3a6a86 100%  /* calm sea */
   );
-  position: relative;
-  overflow: visible;
-}
-
-/* Wave SVG riding under the header */
-.md-header::after {
-  content: "";
-  position: absolute;
-  bottom: -22px;
-  left: 0;
-  right: 0;
-  height: 24px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 24' preserveAspectRatio='none'><path d='M0 0 C 200 22 380 4 600 12 C 820 20 1040 6 1260 14 C 1340 17 1400 8 1440 12 L 1440 0 Z' fill='%233a6a86'/></svg>");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  pointer-events: none;
-  z-index: 1;
 }
 
 [data-md-color-scheme="slate"] .md-header {
@@ -69,15 +52,14 @@
   );
 }
 
-[data-md-color-scheme="slate"] .md-header::after {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 24' preserveAspectRatio='none'><path d='M0 0 C 200 22 380 4 600 12 C 820 20 1040 6 1260 14 C 1340 17 1400 8 1440 12 L 1440 0 Z' fill='%23061827'/></svg>");
+/* Tabs continue the header band (= a flat strip in the header's bottom color)
+   so white tab text stays readable in both modes. */
+.md-tabs {
+  background-color: #3a6a86;
 }
 
-/* Tabs ride on the gradient */
-.md-tabs {
-  background: transparent;
-  position: relative;
-  z-index: 2;
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #061827;
 }
 
 .md-tabs__link {
@@ -89,11 +71,6 @@
 .md-tabs__link--active,
 .md-tabs__link:hover {
   color: #ffffff;
-}
-
-/* push the main content down a bit so the wave has room to breathe */
-.md-main {
-  padding-top: 12px;
 }
 
 /* ─── Logo: preserve red ship colors ─── */
