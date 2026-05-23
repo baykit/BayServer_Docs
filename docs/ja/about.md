@@ -146,7 +146,7 @@ BayServer は HTTP の他、AJP (Apache JServ Protocol) や FCGI (Fast CGI) も�
 
 ## 関連セクション
 
-- [はじめに](getting-started/index.md) — インストールから最初の起動まで
+- [入門ページ](getting-started/index.md) — インストールから最初の起動まで
 - [チュートリアル](getting-started/tutorial/index.md) — 3 部構成のハンズオン
 - [ガイド](guide/index.md) — 上記の構成例を実際に組む How-to
 - [リファレンス](reference/index.md) — `.plan` 文法、Docker 種別、用語集

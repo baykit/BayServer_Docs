@@ -98,8 +98,8 @@ markdown_extensions:
 
 nav:
   - ホーム: index.md
-  - BayServer とは: about.md
-  - はじめに:
+  - はじめに: about.md
+  - 入門ページ:
       - getting-started/index.md
       - インストール: getting-started/install.md
       - Hello World: getting-started/hello-world.md
@@ -110,12 +110,17 @@ nav:
           - Part 3 リバプロを足す: getting-started/tutorial/part3-warp.md
   - ガイド:
       - guide/index.md
+      - PHP を使う: guide/php.md
+      - php-fpm を使う: guide/php-fpm.md
+      - WordPress を動かす: guide/wordpress.md
+      - Servlet を使う: guide/servlet.md
+      - Rails を使う: guide/rails.md
+      - WSGI を使う: guide/wsgi.md
       - リバースプロキシ: guide/reverse-proxy.md
       - HTTPS / TLS: guide/https.md
       - Let's Encrypt: guide/letsencrypt.md
-      - アクセス制限: guide/access-control.md
       - HTTP/3: guide/http3.md
-      - WordPress: guide/wordpress.md
+      - アクセス制限: guide/access-control.md
       - 他サーバからの移行: guide/migration.md
   - 実例集:
       - examples/index.md

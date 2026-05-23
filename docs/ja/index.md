@@ -2,15 +2,21 @@
 
 **BayServer** は「**簡単**」「**軽量**」「**高速**」を設計目標にした、オープンソースの Web / Proxy サーバです。本サイトでは BayServer の概念、使い方、運用、性能 tuning、開発情報を集約しています。
 
-製品の概要は [**BayServer とは**](about.md) から。初めての方は [**チュートリアル**](getting-started/tutorial/index.md) を順に進めるのもおすすめです。
+BayServer の概要を読むなら [**はじめに**](about.md) から。実際に動かしてみるなら [**入門ページ**](getting-started/index.md) で手を動かしながら学べます。
 
 ## どこから読む?
 
 <div class="grid cards" markdown>
 
--   :material-anchor: __はじめに__
+-   :material-book-open-variant: __はじめに__
 
-    インストールから最初の Hello World、3 部構成のチュートリアルまで。
+    BayServer の概要、設計目標、用語、構成例 (= 読みもの)。
+
+    [→ はじめに](about.md)
+
+-   :material-anchor: __入門ページ__
+
+    インストールから最初の Hello World、3 部構成のチュートリアルまで (= ハンズオン)。
 
     [→ 入門ページ](getting-started/index.md)
 
