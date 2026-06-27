@@ -56,7 +56,7 @@ BayServer は Java / Ruby / Python / PHP / TypeScript (Node.js) / Go の各言�
 | Ruby | epoll / kqueue |
 | PHP | epoll / kqueue |
 | TypeScript (Node.js) | libuv (= Node.js のイベントループ) |
-| Go | goroutine + Go ランタイムスケジューラ |
+| Go | epoll / kqueue |
 
 ## 推奨用途
 

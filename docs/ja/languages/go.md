@@ -1,6 +1,6 @@
 # Go 版 BayServer
 
-BayServer for Go は **goroutine + Go ランタイムスケジューラ** を活用したネイティブビルドの実装です。配布形態は単一バイナリ。
+BayServer for Go は **epoll / kqueue ベースのノンブロッキング I/O** を採用したネイティブビルドの実装です。配布形態は単一バイナリ。
 
 ## インストール
 
@@ -23,7 +23,7 @@ go build ./cmd/bayserver
 
 ## 主な特徴
 
-- **goroutine ベース** — 1 接続を 1 goroutine が担当、Go ランタイムが OS スレッドにマッピング
+- **epoll / kqueue ベース** — Linux では epoll、macOS / BSD では kqueue で I/O 多重化
 - **単一バイナリ** — Go のクロスコンパイル特性を活かして展開即実行
 - **軽量** — 起動が速い、メモリフットプリント小
 
@@ -58,7 +58,13 @@ go build ./cmd/bayserver
 
 ## マルチコアモード
 
-Go 版は **goroutine スケジューラ** が自動で利用可能 CPU コアにスレッドを分散させます。`GOMAXPROCS` で並列度を制御可能:
+```
+[harbor]
+    multiCore on
+    grandAgents 4
+```
+
+`GOMAXPROCS` で利用 CPU 数を明示することも可能:
 
 ```bash
 GOMAXPROCS=8 ./bin/bayserver -start
@@ -73,7 +79,7 @@ GOMAXPROCS=8 ./bin/bayserver -start
 ## 用途
 
 - リバースプロキシ専用サーバ (= フロント担当)
-- 静的サイトホスティング (= goroutine の軽量さで高 RPS)
+- 静的サイトホスティング
 - Go アプリの隣に立てる Web サーバ (= デプロイバンドルの統一)
 - 組込・コンテナ最適化 (= 単一バイナリで Docker イメージ最小化)
 

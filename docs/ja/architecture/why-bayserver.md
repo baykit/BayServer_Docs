@@ -33,7 +33,7 @@ BayServer は **設定の比喩 (= 港湾)** を採用しています。port (�
 | Tomcat | Java + 各種 jar | ~10MB+ |
 | **BayServer (Java 版)** | JDK のみ | **<1MB** |
 
-BayServer は **各言語の標準 API のみ** で書かれているため、外部依存はありません (= HTTP/3 用ライブラリは除く)。`tar` / `jar` 展開後すぐ動きます。
+BayServer は **各言語の標準 API + 最小限の外部パッケージ** で書かれており、重い依存ツリーは持ちません。
 
 ## 高速さ
 

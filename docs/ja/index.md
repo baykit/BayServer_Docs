@@ -90,7 +90,7 @@ BayServer は同じプラン記法を、異なる言語実装で動かすこと�
 
 -   :material-language-go: __Go__
 
-    goroutine ベース、単一バイナリ配布。
+    ネイティブビルド、単一バイナリ配布。
 
     [→ Go 版](languages/go.md)
 

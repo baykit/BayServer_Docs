@@ -11,7 +11,7 @@ BayServer は複数のプログラミング言語実装で書かれており、�
 - [Ruby](ruby.md) — Rack サーバ内蔵 (Rails / Sinatra)
 - [Python](python.md) — WSGI サーバ内蔵 (Django / Flask)、HTTP/3 対応
 - [TypeScript (Node.js)](typescript.md) — npm 配布
-- [Go](go.md) — goroutine ベースのネイティブビルド、単一バイナリ配布
+- [Go](go.md) — ネイティブビルド、単一バイナリ配布
 
 ## 機能対応表
 
