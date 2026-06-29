@@ -1,11 +1,221 @@
-# Docker 種別
+# 設計ファイル (.plan) リファレンス
 
-BayServer の **Docker** とは、港湾従事者 (= 比喩) を抽象化した設定ブロックの単位です。種類ごとに役割が違い、`.plan` の中で組み合わせて使います。
+BayServer の設定ファイル (= **設計ファイル / `.plan`**) のリファレンスです。書式と、構成要素である **Docker** の全種類・パラメータをまとめます。`.plan` は Windows の ini ファイルに近いシンプルな書式で、Docker と呼ばれるブロックを縦に並べて構成します。
+
+!!! note "全言語実装で共通"
+    `.plan` の文法は Java / Ruby / Python / PHP / TypeScript / Go の **全ての BayServer 実装で同一** です。同じ `.plan` ファイルを別言語の実装に渡しても (= 言語固有 docker のみ違いを吸収すれば) そのまま動作します。
+
+## 場所
+
+デフォルトは BayServer ホーム配下の `plan/bayserver.plan`。起動時の `-plan` オプションで別ファイルを指定できます:
+
+```bash
+bin/bayserver.sh -start -plan path/to/custom.plan
+```
+
+## 基本構造
+
+```
+[harbor]
+    charset UTF-8
+    timeout 30
+
+[port 2020]
+    timeout 10
+
+[city www.baykit.yokohama]
+    [town /]
+        location www/root
+        index    index.php
+        [club *.php]
+            docker php
+
+[log log/access.log]
+    format %h %l %u %t "%r" %>s %b
+```
+
+### Docker ブロック
+
+`[<タイプ> <識別子>]` の形式で各 Docker を宣言します。例えば `[port 2020]` は「2020 番ポートを開く Port Docker の宣言」です。
+
+### パラメータ
+
+ブロック内の各行は **「名前 値」** をスペース区切りで書きます。
+
+```
+charset UTF-8
+timeout 30
+```
+
+- 名前と値は **半角スペース** で区切る (= 全角スペース / タブは認識されないので注意)
+- 名前は大文字小文字を区別しない (`charset` / `CharSet` / `CHARSET` は同じ)
+- 値の解釈は Docker / パラメータごとに異なります (= 下記 [Docker 種別](#docker-種別) 参照)
+
+### インデント
+
+ブロックの所属はインデントで示します:
+
+```
+[harbor]
+    charset UTF-8
+    timeout 30
+```
+
+- インデント幅は **任意** (= 2 スペース / 4 スペースなど、好み)
+- 同一ブロック内では **インデント幅を揃える**
+- **全角スペース / タブは使わない** (= 必ず半角スペース)
+
+### ネスト
+
+Docker は階層構造で書けます:
+
+```
+[city www.baykit.yokohama]
+    [town /]
+        location www/root
+        index    index.php
+        [club *.php]
+            docker php
+```
+
+子ブロックは親より深くインデントします。
+
+### コメント
+
+`#` で始まる行はコメント:
+
+```
+[city www.example.com]
+# ここはコメント
+    [town /]
+        # この行もコメント
+        location www/root
+```
+
+空白だけの行は無視されます。
+
+## Docker 階層
+
+主要な Docker は以下の階層を取ります:
+
+```mermaid
+graph TD
+  harbor[harbor<br/>= サーバ全体]
+  port[port<br/>= TCP/UDP ポート]
+  secure[secure<br/>= TLS]
+  perm_port[permission<br/>= ポート単位]
+  city[city<br/>= バーチャルホスト]
+  town[town<br/>= URL 区画]
+  club[club<br/>= 拡張子/パスパターン]
+  docker_x[docker xxx<br/>= file / cgi / php / servlet / warp ...]
+  perm_town[permission<br/>= town 単位]
+  log[log<br/>= アクセスログ]
+
+  harbor --- port
+  harbor --- city
+  harbor --- log
+  port --> secure
+  port --> perm_port
+  city --> town
+  town --> club
+  town --> perm_town
+  club --> docker_x
+```
+
+テキスト表現でも同等:
+
+```
+harbor                   (= サーバ全体)
+port (port number)       (= TCP/UDP ポート)
+    secure               (= TLS)
+    permission           (= IP / ホスト制限)
+city (host name or *)    (= バーチャルホスト)
+    town (URL path)      (= URL 区画)
+        club (pattern)   (= 拡張子 / パスパターン)
+            docker xxx   (= file / cgi / php / servlet / warp / …)
+        permission       (= path 単位の制限)
+log (log file path)      (= アクセスログ)
+```
+
+各 Docker の役割と全パラメータは下記 [Docker 種別](#docker-種別) を参照。
+
+## よく使う設定例
+
+### 静的ファイルだけ配信
+
+```
+[harbor]
+    charset UTF-8
+
+[port 8080]
+
+[city *]
+    [town /]
+        location www/root
+        index    index.html
+```
+
+### PHP ファイルを動的実行
+
+```
+[city *]
+    [town /]
+        location www/root
+        index    index.php
+        [club *.php]
+            docker php
+```
+
+### バーチャルホスト
+
+```
+[city www.example.com]
+    [town /]
+        location /srv/example/www
+
+[city blog.example.com]
+    [town /]
+        location /srv/blog/www
+
+[city *]
+    [town /]
+        location www/default
+```
+
+`*` はワイルドカードで「他の city にマッチしない全てのホスト」を意味します。
+
+### リバースプロキシ
+
+```
+[city *]
+    [town /api]
+        [club *]
+            docker httpWarp
+            destCity backend.internal
+            destPort 8080
+            destTown /api
+```
+
+詳細は [ガイド / リバースプロキシ](../guide/reverse-proxy.md)。
+
+## 引用符と特殊文字
+
+文字列値にスペースを含めたい場合はダブルクォートで囲みます:
+
+```
+format "%h %l %u %t \"%r\" %>s %b"
+```
+
+---
+
+## Docker 種別
+
+**Docker** とは、港湾従事者 (= 比喩) を抽象化した設定ブロックの単位です。種類ごとに役割が違い、`.plan` の中で組み合わせて使います。
 
 !!! note
     仮想コンテナの Docker (= Docker, Inc.) とは無関係です。
 
-## 大分類
+### 大分類
 
 | Docker | 役割 (= 港湾の喩え) | 実際の機能 |
 |---|---|---|
@@ -20,7 +230,7 @@ BayServer の **Docker** とは、港湾従事者 (= 比喩) を抽象化した�
 | **Club** | クラブ / 店 | 拡張子ハンドラ (= File / CGI / PHP / Servlet / Warp ...) |
 | **Trouble** | 問題時の対処 | HTTP エラー時の代替挙動 |
 
-## パラメータの型
+### パラメータの型
 
 各 Docker のパラメータは以下の型のいずれか:
 
@@ -29,7 +239,7 @@ BayServer の **Docker** とは、港湾従事者 (= 比喩) を抽象化した�
 - **Boolean** — `on` / `off` / `true` / `false` / `yes` / `no` のいずれか (= 全部同じ意味)
 - **Multiplexer Type** — `spider` / `spin` / `pigeon` / `taxi` / `train` / `job` のいずれか
 
-### Multiplexer Type
+#### Multiplexer Type
 
 I/O 多重化方式の指定。Docker (= 主に Harbor) で `netMultiplexer` などのパラメータに渡します。
 
@@ -44,7 +254,7 @@ I/O 多重化方式の指定。Docker (= 主に Harbor) で `netMultiplexer` な
 
 詳細は [Multiplexer の役割](../architecture/index.md) (TBD) を参照。
 
-## Harbor Docker
+### Harbor Docker
 
 サーバ全体の設定。`.plan` に 1 つだけ存在。
 
@@ -71,7 +281,7 @@ I/O 多重化方式の指定。Docker (= 主に Harbor) で `netMultiplexer` な
 | `redirectFile` | 標準出力 / エラー出力をファイルへ |
 | `netMultiplexer` | ネットワーク I/O の Multiplexer Type |
 
-## Port Docker
+### Port Docker
 
 リッスンポートの宣言。
 
@@ -88,7 +298,7 @@ I/O 多重化方式の指定。Docker (= 主に Harbor) で `netMultiplexer` な
 
 ネストできる子 Docker: `secure` / `permission`。
 
-### HTTP Port
+#### HTTP Port
 
 省略時のデフォルト。HTTP/1.1 と (Secure と組み合わせれば) HTTP/2 / HTTP/3 を扱います。
 
@@ -97,11 +307,11 @@ I/O 多重化方式の指定。Docker (= 主に Harbor) で `netMultiplexer` な
 | `enableH2` | HTTP/2 の許可 (= ALPN で握る) |
 | `enableH3` | HTTP/3 (QUIC) の許可 |
 
-### AJP Port / FCGI Port
+#### AJP Port / FCGI Port
 
 それぞれ `docker ajp` / `docker fcgi` を指定。Apache や Nginx のバックエンドとして BayServer を使う場合に使用。
 
-## Secure Docker
+### Secure Docker
 
 Port Docker の子として配置 → そのポートを TLS 化。
 
@@ -122,7 +332,7 @@ Port Docker の子として配置 → そのポートを TLS 化。
 
 詳細: [HTTPS / TLS の設定](../guide/https.md)。
 
-## City Docker
+### City Docker
 
 バーチャルホスト宣言。
 
@@ -136,7 +346,7 @@ Port Docker の子として配置 → そのポートを TLS 化。
 
 子 Docker: `town`, `permission`, `log`, `reroute`, `trouble`。
 
-## Town Docker
+### Town Docker
 
 city 内の URL パス区画。
 
@@ -154,7 +364,7 @@ city 内の URL パス区画。
 
 子 Docker: `club`, `permission`, `reroute`。
 
-## Club Docker
+### Club Docker
 
 ファイル / リクエストパターンに対するハンドラ。
 
@@ -168,11 +378,11 @@ city 内の URL パス区画。
 | `docker` | ハンドラの種類: `file` / `cgi` / `php` / `servlet` / `httpWarp` / `ajpWarp` / `fcgiWarp` / `wordpress` |
 | `charset` | 文字エンコーディング |
 
-### File (デフォルト) — 静的ファイル配信
+#### File (デフォルト) — 静的ファイル配信
 
 `docker file` または `docker` 行を省略するとファイル配信。
 
-### CGI Docker
+#### CGI Docker
 
 ```
 [club *.cgi]
@@ -187,7 +397,7 @@ city 内の URL パス区画。
 | `timeout` | CGI プロセスのタイムアウト (秒) |
 | `maxProcesses` | 最大プロセス数 |
 
-### PHP Docker (PhpCgi)
+#### PHP Docker (PhpCgi)
 
 ```
 [club *.php]
@@ -201,11 +411,11 @@ PHP-CGI を起動して `.php` を実行。`php-cgi` がパス上にあること
 | `phpCgi` | php-cgi のパス |
 | `timeout` | タイムアウト (秒) |
 
-### Servlet / Rack / WSGI
+#### Servlet / Rack / WSGI
 
 Java / Ruby / Python 版固有の Club Docker。[言語別](../languages/index.md) を参照。
 
-### Warp Docker (HTTP/AJP/FCGI) { #warp-docker-http-ajp-fcgi }
+#### Warp Docker (HTTP/AJP/FCGI) { #warp-docker-http-ajp-fcgi }
 
 別ホストへのリバースプロキシ。
 
@@ -229,7 +439,7 @@ Java / Ruby / Python 版固有の Club Docker。[言語別](../languages/index.m
 
 詳細: [リバースプロキシ](../guide/reverse-proxy.md)。
 
-### WordPress Docker
+#### WordPress Docker
 
 ```
 [city wp.example.com]
@@ -241,7 +451,7 @@ Java / Ruby / Python 版固有の Club Docker。[言語別](../languages/index.m
 
 WordPress の URL リライト規則を内蔵した Club Docker。詳細: [WordPress を動かす](../guide/wordpress.md)。
 
-## Permission Docker
+### Permission Docker
 
 IP/ホスト制限や Basic 認証。Port / City / Town にネスト可能。
 
@@ -261,7 +471,7 @@ IP/ホスト制限や Basic 認証。Port / City / Town にネスト可能。
 
 詳細: [アクセス制限](../guide/access-control.md)。
 
-## Log Docker
+### Log Docker
 
 ```
 [log log/access.log]
@@ -273,7 +483,7 @@ IP/ホスト制限や Basic 認証。Port / City / Town にネスト可能。
 | `format` | Apache 互換のログフォーマット文字列 |
 | `roll` | ローテーション方式 |
 
-## Reroute Docker
+### Reroute Docker
 
 URL 書き換え。
 
@@ -284,7 +494,7 @@ URL 書き換え。
 
 または独自パターン。
 
-## Trouble Docker
+### Trouble Docker
 
 HTTP エラー時の処理。
 
@@ -297,6 +507,6 @@ HTTP エラー時の処理。
 
 ## 関連
 
-- [`.plan` 文法](plan-syntax.md) — 設定ファイルの書き方
-- [用語集](glossary.md) — Docker 名の比喩と用語早見表
+- [用語集](glossary.md) — 港湾比喩 (harbor / port / city / town / club / …) と用語早見表
+- [Hello World](../getting-started/hello-world.md) — 最初の `.plan` を書く
 - [ガイド](../guide/index.md) — 実際の使用例

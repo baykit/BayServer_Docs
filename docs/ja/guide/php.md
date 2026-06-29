@@ -93,4 +93,4 @@ curl http://localhost:8080/info.php
 - [WordPress を動かす](wordpress.md) — PHP + WordPress 専用 Docker
 - [WordPress 完全構成 (実例)](../examples/wordpress-full.md)
 - [PHP 版 BayServer](../languages/php.md)
-- [Docker 種別 / PHP Docker](../reference/docker-types.md)
+- [Docker 種別 / PHP Docker](../reference/plan-reference.md)

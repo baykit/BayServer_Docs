@@ -154,4 +154,4 @@ ActionCable は HTTP/1.1 Upgrade ベース。BayServer の Rack 経路でも動�
 - [Rails 完全構成 (実例)](../examples/rails.md) — TLS + 静的 + Let's Encrypt 込み
 - [リバースプロキシ](reverse-proxy.md) — Puma 等の外部 Rack サーバを置く場合
 - [HTTPS / TLS の設定](https.md)
-- [Docker 種別 / Rack Docker](../reference/docker-types.md)
+- [Docker 種別 / Rack Docker](../reference/plan-reference.md)

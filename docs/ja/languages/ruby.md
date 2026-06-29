@@ -92,4 +92,4 @@ Ruby 版は HTTP/3 サーバ機能を **未サポート** (= 2026 時点)。HTTP
 
 - [インストール](../getting-started/install.md)
 - [言語実装別 比較表](comparison.md)
-- [`.plan` 文法](../reference/plan-syntax.md)
+- [設計ファイル (.plan) リファレンス](../reference/plan-reference.md)

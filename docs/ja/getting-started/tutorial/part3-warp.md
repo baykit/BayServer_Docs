@@ -147,7 +147,7 @@ curl -k https://localhost:8443/api/hello
     destCity :unix:/run/php/php8-fpm.sock
 ```
 
-詳細: [リバースプロキシ](../../guide/reverse-proxy.md)、[Docker 種別 / Warp Docker](../../reference/docker-types.md#warp-docker-http-ajp-fcgi)。
+詳細: [リバースプロキシ](../../guide/reverse-proxy.md)、[Docker 種別 / Warp Docker](../../reference/plan-reference.md#warp-docker-http-ajp-fcgi)。
 
 ## チュートリアル完了
 

@@ -31,7 +31,7 @@
 
 ### 設定ファイルの拡張子はなぜ `.plan`?
 
-BayServer の世界観で「設計ファイル (= 港湾の設計書)」と呼んでいるため。ini ファイルに似た書式で、Python 風のインデントで Docker ブロックの階層を表現します。詳細: [`.plan` 文法](reference/plan-syntax.md)。
+BayServer の世界観で「設計ファイル (= 港湾の設計書)」と呼んでいるため。ini ファイルに似た書式で、Python 風のインデントで Docker ブロックの階層を表現します。詳細: [設計ファイル (.plan) リファレンス](reference/plan-reference.md)。
 
 ## 起動・設定
 
@@ -55,7 +55,7 @@ bin/bayserver.sh -start
 
 ### `.plan` の Docker 階層が分からない
 
-[`.plan` 文法 / Docker 階層](reference/plan-syntax.md#docker) を参照。基本は:
+[設計ファイル (.plan) リファレンス / Docker 階層](reference/plan-reference.md#docker-階層) を参照。基本は:
 
 ```
 harbor

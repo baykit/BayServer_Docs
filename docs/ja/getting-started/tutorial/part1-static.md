@@ -158,7 +158,7 @@ bin/bayserver.sh -stop
 - 静的ファイル配信は `town` の `location` + `index` だけで OK
 - 変更したら `-restart` で反映
 
-詳細な `.plan` 文法は [リファレンス](../../reference/plan-syntax.md) を参照。
+詳細な `.plan` 文法は [リファレンス](../../reference/plan-reference.md) を参照。
 
 ---
 

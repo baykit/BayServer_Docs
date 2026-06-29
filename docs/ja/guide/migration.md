@@ -215,7 +215,7 @@ Apache / Nginx を急に置き換えるのが怖い場合、まず **フロン�
 
 ## 関連
 
-- [`.plan` 文法](../reference/plan-syntax.md)
+- [設計ファイル (.plan) リファレンス](../reference/plan-reference.md)
 - [リバースプロキシ](reverse-proxy.md)
 - [HTTPS / TLS の設定](https.md)
 - [なぜ BayServer か](../architecture/why-bayserver.md) — 他サーバとの設計比較

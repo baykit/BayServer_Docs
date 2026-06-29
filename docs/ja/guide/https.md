@@ -116,7 +116,7 @@ keytool -importkeystore \
 
 ## TLS バージョン / 暗号スイートの制御
 
-詳細は [Docker 種別 / Secure Docker](../reference/docker-types.md) を参照。
+詳細は [Docker 種別 / Secure Docker](../reference/plan-reference.md) を参照。
 
 ## HTTP/2 / HTTP/3 を有効化
 
@@ -147,4 +147,4 @@ sudo ufw allow 443/tcp
 
 - [Let's Encrypt で証明書を取得する](letsencrypt.md)
 - [HTTP/3 を有効化する](http3.md)
-- [Docker 種別 / Secure Docker](../reference/docker-types.md)
+- [Docker 種別 / Secure Docker](../reference/plan-reference.md)

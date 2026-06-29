@@ -148,4 +148,4 @@ BSERV_OPT="-Xmx2g -XX:+UseG1GC" bin/bayserver.sh -start
 - [Java 版 BayServer](../languages/java.md)
 - [リバースプロキシ](reverse-proxy.md) — Tomcat に AJP で繋ぐパターン
 - [HTTPS / TLS の設定](https.md)
-- [Docker 種別 / Servlet Docker](../reference/docker-types.md)
+- [Docker 種別 / Servlet Docker](../reference/plan-reference.md)

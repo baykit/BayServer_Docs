@@ -186,5 +186,5 @@ bayserver
 ## 次のステップ
 
 - [Hello World](../getting-started/hello-world.md) — 最初の `.plan` を書いて自分のコンテンツを配信する
-- [`.plan` 文法](../reference/index.md) — 設定ファイルの完全な書き方
+- [設計ファイル (.plan) リファレンス](../reference/plan-reference.md) — 設定ファイルの完全な書き方
 - [言語別](../languages/index.md) — 各実装の機能対応

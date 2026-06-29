@@ -6,16 +6,16 @@ BayServer の **港湾比喩** を中心とした主要用語の早見表。各�
 
 | 用語 | 比喩 | 役割 | 詳細 |
 |---|---|---|---|
-| **harbor** | 港湾 | サーバ全体の取りまとめ (= タイムアウト、スレッド数、I/O 多重化) | [Docker / Harbor](docker-types.md#harbor-docker) |
-| **port** | 港 | リッスンポート (TCP / UDP)、プロトコル設定 | [Docker / Port](docker-types.md#port-docker) |
-| **secure** | 通信暗号 | TLS / SSL の鍵と証明書 | [Docker / Secure](docker-types.md#secure-docker) / [HTTPS ガイド](../guide/https.md) |
-| **permission** | 入国審査 | IP / ホスト制限、Basic 認証 | [Docker / Permission](docker-types.md#permission-docker) / [アクセス制限](../guide/access-control.md) |
-| **city** | 都市 | バーチャルホスト | [Docker / City](docker-types.md#city-docker) |
-| **town** | 街区 | URL パス区画 | [Docker / Town](docker-types.md#town-docker) |
-| **club** | クラブ | 拡張子 / パスパターンのハンドラ (= file / cgi / php / servlet / warp) | [Docker / Club](docker-types.md#club-docker) |
-| **log** | 入国記録 | アクセスログ | [Docker / Log](docker-types.md#log-docker) |
-| **reroute** | 行先変更 | URL Rewriting | [Docker / Reroute](docker-types.md#reroute-docker) |
-| **trouble** | 問題対処 | HTTP エラー時の代替挙動 | [Docker / Trouble](docker-types.md#trouble-docker) |
+| **harbor** | 港湾 | サーバ全体の取りまとめ (= タイムアウト、スレッド数、I/O 多重化) | [Docker / Harbor](plan-reference.md#harbor-docker) |
+| **port** | 港 | リッスンポート (TCP / UDP)、プロトコル設定 | [Docker / Port](plan-reference.md#port-docker) |
+| **secure** | 通信暗号 | TLS / SSL の鍵と証明書 | [Docker / Secure](plan-reference.md#secure-docker) / [HTTPS ガイド](../guide/https.md) |
+| **permission** | 入国審査 | IP / ホスト制限、Basic 認証 | [Docker / Permission](plan-reference.md#permission-docker) / [アクセス制限](../guide/access-control.md) |
+| **city** | 都市 | バーチャルホスト | [Docker / City](plan-reference.md#city-docker) |
+| **town** | 街区 | URL パス区画 | [Docker / Town](plan-reference.md#town-docker) |
+| **club** | クラブ | 拡張子 / パスパターンのハンドラ (= file / cgi / php / servlet / warp) | [Docker / Club](plan-reference.md#club-docker) |
+| **log** | 入国記録 | アクセスログ | [Docker / Log](plan-reference.md#log-docker) |
+| **reroute** | 行先変更 | URL Rewriting | [Docker / Reroute](plan-reference.md#reroute-docker) |
+| **trouble** | 問題対処 | HTTP エラー時の代替挙動 | [Docker / Trouble](plan-reference.md#trouble-docker) |
 | **barge** | 艀 (= はしけ) | プロセス内 LRU メモリキャッシュ | [Multiplexer / Barge](../architecture/multiplexer.md) |
 
 ## 処理モデルの用語
@@ -78,6 +78,5 @@ BayServer の **港湾比喩** を中心とした主要用語の早見表。各�
 ## 関連
 
 - [BayServer とは](../about.md) — 港湾比喩の由来
-- [`.plan` 文法](plan-syntax.md)
-- [Docker 種別](docker-types.md)
+- [設計ファイル (.plan) リファレンス](plan-reference.md)
 - [Tour / Ship / Agent](../architecture/tour-ship-agent.md)

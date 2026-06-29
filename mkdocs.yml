@@ -133,9 +133,8 @@ nav:
       - WordPress 完全構成: examples/wordpress-full.md
   - リファレンス:
       - reference/index.md
-      - .plan 文法: reference/plan-syntax.md
+      - 設計ファイル (.plan) リファレンス: reference/plan-reference.md
       - 用語集: reference/glossary.md
-      - Docker 種別: reference/docker-types.md
   - 仕組みを知る:
       - architecture/index.md
       - Tour / Ship / Agent: architecture/tour-ship-agent.md

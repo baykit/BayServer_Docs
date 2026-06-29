@@ -8,7 +8,7 @@ BayServer の主なトピックのハイライトです。完全なリリース�
 - HTTP/2 / HTTP/3 の仕様準拠率の向上
 - 不具合修正による堅牢化
 
-Docker / `.plan` の仕様は [リファレンス](reference/docker-types.md) を参照してください。
+Docker / `.plan` の仕様は [リファレンス](reference/plan-reference.md) を参照してください。
 
 ## 各実装のリリース履歴
 

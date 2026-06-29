@@ -138,4 +138,4 @@ BSERV_OPT="-Xmx4g -XX:+UseG1GC -XX:ActiveProcessorCount=8" bin/bayserver.sh -sta
 
 - [パフォーマンス Tips](tips.md) — 個別の小ネタ
 - [Multiplexer](../architecture/multiplexer.md)
-- [Harbor Docker パラメータ](../reference/docker-types.md)
+- [Harbor Docker パラメータ](../reference/plan-reference.md)

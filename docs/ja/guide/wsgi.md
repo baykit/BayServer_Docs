@@ -185,4 +185,4 @@ BayServer Python 版は **WSGI のみ対応** (= 2026 時点)。FastAPI / Starle
 - [リバースプロキシ](reverse-proxy.md) — Gunicorn 等の外部 WSGI サーバを置く場合
 - [HTTP/3 を有効化する](http3.md) — Python 版で H3 サーバを立てる
 - [HTTPS / TLS の設定](https.md)
-- [Docker 種別 / WSGI Docker](../reference/docker-types.md)
+- [Docker 種別 / WSGI Docker](../reference/plan-reference.md)
