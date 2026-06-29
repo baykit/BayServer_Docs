@@ -11,7 +11,7 @@ bayserver -init
 bayserver
 ```
 
-または [ダウンロード版](../getting-started/install.md) で。
+より詳しい手順・起動オプションは [インストール](../getting-started/install.md#ruby) を参照。
 
 ## Rack を使う
 

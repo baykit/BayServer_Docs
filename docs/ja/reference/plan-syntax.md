@@ -3,7 +3,7 @@
 BayServer の設定ファイル (= **設計ファイル / `.plan`**) は Windows の ini ファイルに近いシンプルな書式です。Docker と呼ばれるブロックを縦に並べて構成します。
 
 !!! note "全言語実装で共通"
-    `.plan` の文法は Java / Ruby / Python / PHP / TypeScript / C の **全ての BayServer 実装で同一** です。同じ `.plan` ファイルを別言語の実装に渡しても (= 言語固有 docker のみ違いを吸収すれば) そのまま動作します。
+    `.plan` の文法は Java / Ruby / Python / PHP / TypeScript / Go の **全ての BayServer 実装で同一** です。同じ `.plan` ファイルを別言語の実装に渡しても (= 言語固有 docker のみ違いを吸収すれば) そのまま動作します。
 
 ## 場所
 

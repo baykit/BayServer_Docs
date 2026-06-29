@@ -163,4 +163,4 @@ pm.max_requests = 1000
 - [WordPress を動かす](wordpress.md) — WordPress 専用 Docker
 - [WordPress 完全構成 (実例)](../examples/wordpress-full.md) — TLS + 静的アセット + Let's Encrypt 込み
 - [リバースプロキシ](reverse-proxy.md) — Warp Docker 全般
-- [Docker 種別 / FCGI Warp (V3)](../reference/docker-types-v3.md)
+- [Docker 種別 / FCGI Warp](../reference/docker-types.md)

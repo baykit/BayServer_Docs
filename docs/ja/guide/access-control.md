@@ -147,5 +147,5 @@ DNS 逆引きが効く環境なら使えます (= 逆引きが遅いとアクセ
 
 ## 関連
 
-- [Docker 種別 / Permission Docker](../reference/docker-types-v3.md)
+- [Docker 種別 / Permission Docker](../reference/docker-types.md)
 - [HTTPS / TLS の設定](https.md) — Basic 認証は HTTPS と併用推奨

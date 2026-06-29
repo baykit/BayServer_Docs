@@ -11,7 +11,7 @@ vendor/bin/bayserver -init
 vendor/bin/bayserver
 ```
 
-または [ダウンロード版](../getting-started/install.md) で。
+より詳しい手順・起動オプションは [インストール](../getting-started/install.md#php) を参照。
 
 ## PHP ファイルを動かす
 

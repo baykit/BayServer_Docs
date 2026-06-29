@@ -10,7 +10,7 @@ bayserver -init
 bayserver
 ```
 
-または [ダウンロード版](../getting-started/install.md) で。
+より詳しい手順・起動オプションは [インストール](../getting-started/install.md#typescript-nodejs) を参照。
 
 ## マルチコア / シングルコア
 

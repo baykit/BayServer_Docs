@@ -25,7 +25,7 @@
 | Python (Django/Flask) | Python 版 |
 | PHP (WordPress 等) | PHP 版 |
 | Node.js / TypeScript | TypeScript 版 |
-| 言語不問の静的サイト or 単純プロキシ | 任意の版 (= Java / Go / C が軽量) |
+| 言語不問の静的サイト or 単純プロキシ | 任意の版 (= Java / Go が軽量) |
 
 詳細: [言語実装別 比較表](languages/comparison.md)。
 

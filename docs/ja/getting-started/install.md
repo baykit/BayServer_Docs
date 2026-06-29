@@ -1,84 +1,142 @@
 # インストール
 
-BayServer は **ダウンロード版** と **パッケージ版** の 2 通りで配布されています。どちらも同じ機能を提供しますが、配布形態と更新方法が違います。
+BayServer のインストール方法を **言語実装ごと** にまとめます。BayServer は言語によって自然な配布形態が異なります:
+
+- **Java / Go** … バイナリ配布（jar / 単一バイナリの tarball）
+- **Ruby / Python / PHP / TypeScript** … 各言語のパッケージマネージャ（gem / pip / composer / npm）
+
+使いたい言語版のセクションへ進んでください。起動・停止の操作は全言語共通で、末尾の [起動・停止（共通）](#起動停止共通) にまとめています。
 
 ## 動作環境
 
-| 版 | 必要な処理系 |
-|---|---|
-| BayServer for Java | JDK 1.8 以降 (OpenJDK 含む) |
-| BayServer for Ruby | Ruby 2.7.6 以降 |
-| BayServer for Python | Python 3.7 以降 |
-| BayServer for PHP | PHP 7.4 以降 |
-| BayServer for TypeScript (Node.js) | Node.js v16.19.0 以降 |
-| BayServer for Go | バイナリ配布 |
+| 言語版 | 必要な処理系 | 既定の入手方法 |
+|---|---|---|
+| Java | JDK 1.8 以降 (OpenJDK 含む) | バイナリ (jar) |
+| Go | 不要（ネイティブ単一バイナリ） | バイナリ (tar) |
+| Ruby | Ruby 2.7.6 以降 | gem |
+| Python | Python 3.7 以降 | pip |
+| PHP | PHP 7.4 以降 | composer |
+| TypeScript (Node.js) | Node.js v16.19.0 以降 | npm |
 
-上記のバージョンは動作確認済みのものです。これより古いバージョンでも動く可能性はありますが、サポート対象外です。
+上記のバージョンは動作確認済みのものです。これより古くても動く可能性はありますが、サポート対象外です。
 
-## ダウンロード版 vs パッケージ版
+---
 
-| 版 | ダウンロード版 | パッケージ版 |
-|---|:---:|:---:|
-| Java | ✓ | △ (※) |
-| Ruby | ✓ | ✓ (gem) |
-| Python | ✓ | ✓ (pip) |
-| PHP | ✓ | ✓ (composer) |
-| TypeScript | ✓ | ✓ (npm) |
-| Go | ✓ | ✕ |
+## Java
 
-※ Java のパッケージ版は当時利用していた Maven リポジトリのサービス終了に伴い、現在は 2.x のみ取得可能。
-
-パッケージ版の提供は **2.2.0 以降** です。
-
-## ダウンロード版
-
-どの言語の版でもインストール手順は基本的に同じです。
-
-### ダウンロードと展開
-
-[配布ページ](https://baykit.yokohama/download/) からアーカイブを取得し展開します。
-
-=== "Java"
-
-    ```bash
-    jar xf BayServer_Java-X.Y.Z.jar
-    ```
-
-=== "Ruby / Python / PHP / TypeScript"
-
-    ```bash
-    tar zxf BayServer_<Lang>-X.Y.Z.tgz
-    ```
-
-展開して出来たディレクトリが **「BayServer ホーム」** です。以降の起動コマンドはすべてこのディレクトリを基準に実行します。
-
-### 起動
+JDK さえあれば動作します。[配布ページ](https://baykit.yokohama/download/) から jar を取得し、展開して起動します。
 
 ```bash
-cd BayServer_<Lang>-X.Y.Z
+jar xf BayServer_Java-X.Y.Z.jar
+cd BayServer_Java-X.Y.Z
 chmod +x bin/bayserver.sh        # Unix 系のみ初回 1 回
 bin/bayserver.sh -start
 ```
 
-Windows では:
+展開して出来たディレクトリが **BayServer ホーム** です（初期設定一式が含まれるため `-init` は不要）。
 
-```
-bin\bayserver -start
-```
-
-`-start` は省略可能。`-daemon` を付けるとデーモンモードで起動 (= コンソールから切り離して動く)。
+JVM オプションは環境変数 `BSERV_OPT` で渡せます:
 
 ```bash
-bin/bayserver.sh -start -daemon
+BSERV_OPT="-Xmx2g -XX:+UseG1GC" bin/bayserver.sh -start
 ```
 
-デーモンモードではコンソールにログが出ないため、ログを見たい場合は `.plan` ファイルの Log Docker に `redirectFile` パラメータを設定してファイル出力に切り替えてください。
+## Go
+
+ネイティブビルドの単一バイナリ実装です。処理系のインストールは不要で、[配布ページ](https://baykit.yokohama/download/) からバイナリの tarball を取得し、展開してそのまま実行します。
+
+```bash
+tar zxf BayServer_Go-X.Y.Z.tgz
+cd BayServer_Go-X.Y.Z
+./bin/bayserver -start
+```
+
+展開して出来たディレクトリが **BayServer ホーム** です（`-init` は不要）。
+
+ソースからビルドする場合は Go ツールチェーンで:
+
+```bash
+go build ./cmd/bayserver
+```
+
+!!! note
+    Go 版にパッケージマネージャ経由の配布はありません（配布バイナリ または ソースビルド）。
+
+## Ruby
+
+RubyGems から取得します。
+
+```bash
+gem install bayserver
+mkdir bhome && cd bhome
+bayserver -init        # BayServer ホームを初期化
+bayserver              # 起動
+```
+
+`gem install` でコマンドを導入し、空ディレクトリを作って `-init` でホームを初期化、引数なしで起動します。
+
+## Python
+
+pip から取得します。
+
+```bash
+pip install bayserver
+mkdir bhome && cd bhome
+bayserver -init        # BayServer ホームを初期化
+bayserver              # 起動
+```
+
+## PHP
+
+Composer から取得します。実行ファイルは `vendor/bin/` 配下に入ります。
+
+```bash
+mkdir bhome && cd bhome
+composer require baykit/bayserver
+vendor/bin/bayserver -init     # BayServer ホームを初期化
+vendor/bin/bayserver           # 起動
+```
+
+## TypeScript (Node.js)
+
+npm からグローバルインストールします。
+
+```bash
+npm install -g @baykit/bayserver
+bayserver -init        # BayServer ホームを初期化
+bayserver              # 起動
+```
+
+---
+
+## 起動・停止（共通）
+
+インストール方法に関わらず、起動オプションと動作確認の手順は共通です。起動コマンド名だけが版によって異なります:
+
+| 版 | 起動コマンド |
+|---|---|
+| Java | `bin/bayserver.sh`（BayServer ホーム内） |
+| Go | `./bin/bayserver`（BayServer ホーム内） |
+| Ruby / Python / TypeScript | `bayserver` |
+| PHP | `vendor/bin/bayserver` |
+
+以下では起動コマンドを `bayserver` と表記します。
+
+### 起動オプション
+
+- `-start` … 起動（省略可）
+- `-daemon` … デーモンモード（コンソールから切り離して起動）
+- `-init` … BayServer ホームの初期化（gem / pip / composer / npm でインストールした場合に使用）
+
+```bash
+bayserver -start -daemon
+```
+
+デーモンモードではコンソールにログが出ません。ログを見たい場合は `.plan` ファイルの Log Docker に `redirectFile` パラメータを設定し、ファイル出力に切り替えてください。
 
 ### 動作確認
 
-BayServer はデフォルトで **2020 (HTTP)** と **2024 (HTTPS)** で待ち受けます。
-
-ブラウザで開いて画面が出れば成功:
+BayServer はデフォルトで **2020 (HTTP)** と **2024 (HTTPS)** で待ち受けます。ブラウザで開いて画面が出れば成功です:
 
 - `http://localhost:2020/`
 - `https://localhost:2024/`
@@ -88,95 +146,8 @@ BayServer はデフォルトで **2020 (HTTP)** と **2024 (HTTPS)** で待ち�
 起動したターミナルなら `Ctrl-C`。別のターミナルから停止する場合は:
 
 ```bash
-bin/bayserver.sh -stop
+bayserver -stop
 ```
-
-## パッケージ版
-
-各言語の標準パッケージマネージャから取得します。
-
-### Maven (Java)
-
-BayServer ホーム用のディレクトリを作って `pom.xml` を配置:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>testGroup</groupId>
-  <artifactId>testArtifact</artifactId>
-  <version>1.0</version>
-  <dependencies>
-    <dependency>
-      <groupId>yokohama.baykit</groupId>
-      <artifactId>bayserver</artifactId>
-      <version>2.2.0</version>
-      <scope>runtime</scope>
-    </dependency>
-  </dependencies>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>3.0.0</version>
-      </plugin>
-    </plugins>
-  </build>
-</project>
-```
-
-```bash
-mvn exec:java -Dexec.mainClass="yokohama.baykit.bayserver.BayServer" -Dexec.args="-init"
-mvn exec:java -Dexec.mainClass="yokohama.baykit.bayserver.BayServer"
-```
-
-`-init` でホーム初期化、引数なしで起動です。
-
-### Gem (Ruby)
-
-```bash
-gem install bayserver
-mkdir bhome && cd bhome
-bayserver -init
-bayserver
-```
-
-### pip (Python)
-
-```bash
-pip install bayserver
-mkdir bhome && cd bhome
-bayserver -init
-bayserver
-```
-
-### Composer (PHP)
-
-```bash
-mkdir bhome && cd bhome
-composer require baykit/bayserver
-bayserver -init       # vendor/bin/bayserver
-bayserver
-```
-
-### npm (TypeScript / Node.js)
-
-```bash
-npm install -g @baykit/bayserver
-bayserver -init
-bayserver
-```
-
-## ダウンロード版とパッケージ版の違い
-
-| 観点 | ダウンロード版 | パッケージ版 |
-|---|---|---|
-| 配布 | 1 ファイル (tar/jar) | 言語標準のレジストリ経由 |
-| 更新 | 再ダウンロード | パッケージマネージャで `update` |
-| ホームディレクトリ | 展開された場所そのもの | 別途作って `-init` で初期化 |
-| 依存解決 | 自己完結 | 標準的な依存ツリーに乗る |
-| 推奨用途 | スタンドアロン運用、検証 | アプリの一部に組込む場合 |
 
 ---
 

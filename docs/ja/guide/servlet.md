@@ -129,12 +129,7 @@ BSERV_OPT="-Xmx2g -XX:+UseG1GC" bin/bayserver.sh -start
 
 ## Servlet API バージョン
 
-| BayServer for Java | サポート Servlet API |
-|---|---|
-| 2.x | `javax.servlet` 4.0 |
-| 3.x | `javax.servlet` 4.0 (= `jakarta.servlet` への移行検討中) |
-
-Jakarta Servlet (= namespace 移行後) への対応は将来予定。
+`javax.servlet` 4.0 をサポートします。Jakarta Servlet (= namespace 移行後) への対応は将来予定です。
 
 ## トラブルシューティング
 
@@ -153,4 +148,4 @@ Jakarta Servlet (= namespace 移行後) への対応は将来予定。
 - [Java 版 BayServer](../languages/java.md)
 - [リバースプロキシ](reverse-proxy.md) — Tomcat に AJP で繋ぐパターン
 - [HTTPS / TLS の設定](https.md)
-- [Docker 種別 / Servlet Docker (V3)](../reference/docker-types-v3.md)
+- [Docker 種別 / Servlet Docker](../reference/docker-types.md)

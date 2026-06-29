@@ -148,4 +148,4 @@ WordPress 管理画面 (`/wp-admin/`) にログインできれば成功。
 
 - [リバースプロキシ](reverse-proxy.md) — FCGI Warp の使い方
 - [HTTPS / TLS の設定](https.md)
-- [Docker 種別 / WordPress Docker](../reference/docker-types-v3.md)
+- [Docker 種別 / WordPress Docker](../reference/docker-types.md)

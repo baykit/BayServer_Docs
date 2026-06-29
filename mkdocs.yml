@@ -96,6 +96,11 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
+# Version 3 アーカイブ (= 古い情報) はナビに出さない。直接 URL でのみ到達可能。
+not_in_nav: |
+  /ja/v3/*
+  /en/v3/*
+
 nav:
   - ホーム: index.md
   - はじめに: about.md
@@ -130,8 +135,7 @@ nav:
       - reference/index.md
       - .plan 文法: reference/plan-syntax.md
       - 用語集: reference/glossary.md
-      - Docker 種別 (V4 以降): reference/docker-types.md
-      - Docker 種別 (V3 以前 / 凍結): reference/docker-types-v3.md
+      - Docker 種別: reference/docker-types.md
   - 仕組みを知る:
       - architecture/index.md
       - Tour / Ship / Agent: architecture/tour-ship-agent.md

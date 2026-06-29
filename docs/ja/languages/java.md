@@ -7,11 +7,11 @@ BayServer for Java は JDK 1.8 以降 (OpenJDK 含む) で動作します。Serv
 - **Servlet API 対応** — Servlet 4.0 (Jakarta Servlet 5+ も対応見込み)
 - **HTTP/2 / HTTP/3 対応** — TLS 上の HTTP/2 と HTTP/3 (QUIC) をサポート
 - **JVM チューニング** — 標準的な `-Xmx` / GC オプションがそのまま使える
-- **Maven 配布** — 当時の Maven Central サービス終了に伴い、現在は 2.x のみパッケージ版で利用可能
+- **配布** — jar 配布
 
 ## インストール
 
-[ダウンロード版](../getting-started/install.md) を推奨。Maven パッケージ版は 2.x のみ。
+[インストール](../getting-started/install.md#java) を参照（jar 配布が基本）。
 
 ```bash
 jar xf BayServer_Java-X.Y.Z.jar
@@ -106,7 +106,6 @@ BSERV_OPT="-Xmx2g -XX:+UseG1GC" bin/bayserver.sh -start
 | 症状 | 確認 |
 |---|---|
 | `java: command not found` | JDK インストール確認 (`java -version`) |
-| Maven 版 3.x が見つからない | 当時利用していた Maven リポジトリのサービス終了のため。ダウンロード版を利用してください |
 | HTTP/3 が起動しない | ネイティブライブラリの導入 ([HTTP/3 を有効化する](../guide/http3.md)) |
 
 ---
@@ -116,4 +115,4 @@ BSERV_OPT="-Xmx2g -XX:+UseG1GC" bin/bayserver.sh -start
 - [インストール](../getting-started/install.md)
 - [言語実装別 比較表](comparison.md)
 - [`.plan` 文法](../reference/plan-syntax.md)
-- [Docker 種別](../reference/docker-types-v3.md)
+- [Docker 種別](../reference/docker-types.md)

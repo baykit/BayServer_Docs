@@ -130,4 +130,4 @@ Ruby / Python / PHP / TypeScript / Go 版でも同じ拡張パターンが使え
 - [ビルド方法](building.md)
 - [コーディングスタイル](coding-style.md)
 - [内部実装の地図](internals.md)
-- [Docker 種別](../reference/docker-types-v3.md)
+- [Docker 種別](../reference/docker-types.md)
