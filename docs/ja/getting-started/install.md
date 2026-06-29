@@ -33,7 +33,7 @@ chmod +x bin/bayserver.sh        # Unix 系のみ初回 1 回
 bin/bayserver.sh -start
 ```
 
-展開して出来たディレクトリが **BayServer ホーム** です（初期設定一式が含まれるため `-init` は不要）。
+展開して出来たディレクトリが **BayServer ホーム** です。
 
 JVM オプションは環境変数 `BSERV_OPT` で渡せます:
 
@@ -51,7 +51,7 @@ cd BayServer_Go-X.Y.Z
 ./bin/bayserver -start
 ```
 
-展開して出来たディレクトリが **BayServer ホーム** です（`-init` は不要）。
+展開して出来たディレクトリが **BayServer ホーム** です。
 
 ソースからビルドする場合は Go ツールチェーンで:
 
