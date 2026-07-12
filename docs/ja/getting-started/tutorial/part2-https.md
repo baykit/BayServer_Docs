@@ -91,36 +91,6 @@ TLS 上で HTTP/2 を有効にするのは 1 行追加で済みます:
 
 再起動して、ブラウザの DevTools の Network タブで Protocol カラムを見ると `h2` と表示されるはずです。
 
-## 5. HTTP/3 (= 任意、Java/Python 版のみ)
-
-Java 版や Python 版を使っている場合は HTTP/3 (QUIC) も追加できます:
-
-```
-[port 8443]
-    enableH2 on
-    enableH3 on
-    [secure]
-        key  cert/dev.key
-        cert cert/dev.crt
-```
-
-別途、UDP 8443 ポートをファイアウォールで開ける必要があります。詳細: [HTTP/3 を有効化する](../../guide/http3.md)。
-
-## 6. HTTP を HTTPS にリダイレクト (= 任意)
-
-公開サイトなら、HTTP で来たアクセスを HTTPS にリダイレクトしたいことがあります。Reroute Docker を使って:
-
-```
-[city *]
-    [reroute]
-        # (= 詳細は reference のreroute セクション参照)
-    [town /]
-        location www/mysite
-        index    index.html
-```
-
-開発時は HTTP も併存させた方がデバッグしやすいので、必要になったら導入で OK です。
-
 ## 動作確認まとめ
 
 ここまでで作った状態:

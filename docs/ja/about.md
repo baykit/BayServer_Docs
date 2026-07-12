@@ -17,7 +17,7 @@ BayServer は **Web ブラウザからの HTTP リクエスト** を受け取り
 ## どんなときに使うか
 
 - Apache / Nginx の代替として、Web サイトのフロントに立てる
-- 既存の Servlet / Rack / WSGI / PHP アプリの前段に置いて、TLS 終端 + 静的配信 + リバプロをまとめる
+- 既存の Servlet / Rack / WSGI / PHP アプリの前段に置いて、TLS 終端 + 静的配信 + リバースプロキシをまとめる
 - Tomcat / PHP-FPM 等の代わりに、アプリを直接ホスト
 - 設定をシンプルに保ちたい、Web サーバの設定で消耗したくない
 

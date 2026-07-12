@@ -112,7 +112,7 @@ nav:
           - getting-started/tutorial/index.md
           - Part 1 静的サイト: getting-started/tutorial/part1-static.md
           - Part 2 HTTPS 化: getting-started/tutorial/part2-https.md
-          - Part 3 リバプロを足す: getting-started/tutorial/part3-warp.md
+          - Part 3 リバースプロキシを足す: getting-started/tutorial/part3-warp.md
   - ガイド:
       - guide/index.md
       - PHP を使う: guide/php.md

@@ -13,6 +13,8 @@ graph LR
 
 `/` は今まで通り静的ファイル、`/api/*` だけ Backend (= 別ポートの HTTP サーバ) に転送します。
 
+BayServer ではリバースプロキシに **Warp** という Docker を使います。受け取ったリクエストを別のサーバへ“ワープ”させるイメージです。転送プロトコルとして **HTTP / AJP / FCGI** をサポートしており、それぞれ `httpWarp` / `ajpWarp` / `fcgiWarp` として使い分けます。
+
 ## 1. バックエンドを用意
 
 何でもよいので、簡単に HTTP を喋るものを 3000 番で動かします。
@@ -59,7 +61,7 @@ curl http://127.0.0.1:3000/hello
 # {"path": "/hello", "from": "backend"}
 ```
 
-## 2. `.plan` にプロキシを足す
+## 2. `.plan` に Warp Docker を足す
 
 Part 2 の `.plan` に `[town /api]` ブロックを追加します:
 
