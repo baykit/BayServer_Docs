@@ -119,8 +119,3 @@ BayServer は同じプラン記法を、異なる言語実装で動かすこと�
     [→ FAQ](faq.md)
 
 </div>
-
----
-
-!!! note "本サイトは整備中です"
-    既存の [https://baykit.yokohama](https://baykit.yokohama) の内容を順次取り込み、より詳細なドキュメントに置き換えていきます。

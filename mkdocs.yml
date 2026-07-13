@@ -59,9 +59,12 @@ plugins:
           nav_translations:
             ホーム: Home
             はじめに: Getting Started
-            ガイド: Guide
+            チュートリアル: Tutorial
+            ハンズオン (3 部構成): Hands-on (3 parts)
+            応用: Advanced
+            実例集: Examples
             リファレンス: Reference
-            アーキテクチャ: Architecture
+            仕組みを知る: Architecture
             言語別: Language Implementations
             パフォーマンス: Performance
             開発者向け: Developer
@@ -104,16 +107,16 @@ not_in_nav: |
 nav:
   - ホーム: index.md
   - はじめに: about.md
-  - 入門ページ:
+  - チュートリアル:
       - getting-started/index.md
       - インストール: getting-started/install.md
       - Hello World: getting-started/hello-world.md
-      - チュートリアル:
+      - ハンズオン (3 部構成):
           - getting-started/tutorial/index.md
           - Part 1 静的サイト: getting-started/tutorial/part1-static.md
           - Part 2 HTTPS 化: getting-started/tutorial/part2-https.md
           - Part 3 リバースプロキシを足す: getting-started/tutorial/part3-warp.md
-  - ガイド:
+  - 応用:
       - guide/index.md
       - PHP を使う: guide/php.md
       - php-fpm を使う: guide/php-fpm.md
@@ -127,10 +130,10 @@ nav:
       - HTTP/3: guide/http3.md
       - アクセス制限: guide/access-control.md
       - 他サーバからの移行: guide/migration.md
-  - 実例集:
-      - examples/index.md
-      - Rails アプリ: examples/rails.md
-      - WordPress 完全構成: examples/wordpress-full.md
+      - 実例集:
+          - examples/index.md
+          - Rails アプリ: examples/rails.md
+          - WordPress 完全構成: examples/wordpress-full.md
   - リファレンス:
       - reference/index.md
       - 設計ファイル (.plan) リファレンス: reference/plan-reference.md
