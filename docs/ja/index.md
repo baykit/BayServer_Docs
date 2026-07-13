@@ -2,7 +2,7 @@
 
 **BayServer** は「**簡単**」「**軽量**」「**高速**」を設計目標にした、オープンソースの Web / Proxy サーバです。本サイトでは BayServer の概念、使い方、運用、性能 tuning、開発情報を集約しています。
 
-BayServer の概要を読むなら [**はじめに**](about.md) から。実際に動かしてみるなら [**入門ページ**](getting-started/index.md) で手を動かしながら学べます。
+BayServer の概要を読むなら [**はじめに**](about.md) から。実際に動かしてみるなら [**チュートリアル**](getting-started/index.md) で手を動かしながら学べます。
 
 ## どこから読む?
 
@@ -14,27 +14,21 @@ BayServer の概要を読むなら [**はじめに**](about.md) から。実際�
 
     [→ はじめに](about.md)
 
--   :material-anchor: __入門ページ__
+-   :material-anchor: __チュートリアル__
 
-    インストールから最初の Hello World、3 部構成のチュートリアルまで (= ハンズオン)。
+    インストールから最初の Hello World、3 部構成のハンズオンまで。
 
-    [→ 入門ページ](getting-started/index.md)
+    [→ チュートリアル](getting-started/index.md)
 
--   :material-compass: __ガイド__
+-   :material-compass: __応用__
 
-    静的配信、リバースプロキシ、HTTPS / HTTP/3、アクセス制限、移行ガイド。
+    静的配信・リバースプロキシ・HTTPS / HTTP/3・アクセス制限・移行ガイドに加え、Rails / WordPress 等の完成形 `.plan` レシピ。
 
-    [→ ガイドへ](guide/index.md)
-
--   :material-clipboard-list: __実例集__
-
-    Rails / WordPress 等の完成形 `.plan` レシピ。
-
-    [→ 実例集へ](examples/index.md)
+    [→ 応用へ](guide/index.md)
 
 -   :material-book-open-page-variant: __リファレンス__
 
-    `.plan` 文法、用語集、Docker 種別の正確な仕様。
+    設計ファイル (.plan) リファレンス、用語集。
 
     [→ リファレンスへ](reference/index.md)
 
